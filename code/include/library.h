@@ -25,8 +25,9 @@ Encoder driveEncoderR
 Encoder driveEncoderL
 
 //analog sensors
-#define POTGOAL 1
+#define POTGOAL  1
 #define POTCHAIN 2
+#define POTCONE  3
 
 
 //joystick - digital channels
@@ -36,17 +37,15 @@ Encoder driveEncoderL
 #define DPAD_R 8 //right d-pad
 	
 //Motor ports - define motor ports
-#define DRIVETRAIN_RB  4        
-#define DRIVETRAIN_RF  5        
-#define DRIVETRAIN_LB  2     
-#define DRIVETRAIN_LF  3       
-#define LINEARGEAR_R   7
-#define LINEARGEAR_L   8
-#define CHAINBAR_R     9
-#define CHAINBAR_L     
-#define CONEGRAB
-#define GOALGRAB_R     1
-#define GOALGRAB_L     10
+#define DRIVETRAIN_RB   6       
+#define DRIVETRAIN_RF   2     
+#define DRIVETRAIN_LB   7    
+#define DRIVETRAIN_LF   3    
+#define LINEARGEAR      4
+#define CHAINBAR        9  
+#define CONEGRAB        5
+#define GOALGRAB        8
+
 
 ///////////////////////////////
 //// Variables             ////
@@ -80,8 +79,6 @@ void conegrabber(void);
 void lineargear(void);
 void goalgrabber(void);
 void chainbar(void);
-void debug(void);
-void autotest1(void);
 void plooptest1(void);
 void calibrate(void);
 void ploopliftgoal(void);
