@@ -131,11 +131,11 @@ void ploopliftgoal(void) {
 	}
 
 void chainbar(void) {  
-	if(joystickGetAnalog(JS_VEXNET, JS_LEFT_Y)>40) {
-		smartMotorSet(CHAINBAR, joystickGetAnalog(JS_VEXNET, JS_LEFT_Y)-40);
+	if(joystickGetAnalog(JS_VEXNET, JS_LEFT_Y)>50) {
+		smartMotorSet(CHAINBAR, joystickGetAnalog(JS_VEXNET, JS_LEFT_Y)-50);
 	}
-	else if(joystickGetAnalog(JS_VEXNET, JS_LEFT_Y)<-40) {
-		smartMotorSet(CHAINBAR, joystickGetAnalog(JS_VEXNET, JS_LEFT_Y)+40);
+	else if(joystickGetAnalog(JS_VEXNET, JS_LEFT_Y)<-50) {
+		smartMotorSet(CHAINBAR, joystickGetAnalog(JS_VEXNET, JS_LEFT_Y)+50);
 	}
 	else {
 		smartMotorSet(CHAINBAR, 0);
@@ -172,4 +172,16 @@ while(getEncoder(driveEncoderR) <= desiredValue) {
 	delay(25);
 }
 
+}
+void timedelay1(void) {
+	smartMotorSet(DRIVETRAIN_LB, 127);
+	smartMotorSet(DRIVETRAIN_RB, 127);
+	smartMotorSet(DRIVETRAIN_LF, 127);
+	smartMotorSet(DRIVETRAIN_RF, 127);
+	delay(3000);
+	motorStop(DRIVETRAIN_RB);
+	motorStop(DRIVETRAIN_LB);
+	motorStop(DRIVETRAIN_RF);
+	motorStop(DRIVETRAIN_LF);
+	delay(10);
 }

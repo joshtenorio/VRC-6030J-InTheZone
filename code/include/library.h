@@ -78,6 +78,7 @@ void tankdrive(void);
 void conegrabber(void);
 void lineargear(void);
 void goalgrabber(void);
+void timedelay1(void);
 void chainbar(void);
 void plooptest1(void);
 void calibrate(void);
