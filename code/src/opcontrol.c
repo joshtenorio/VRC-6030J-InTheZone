@@ -29,21 +29,15 @@
  *
  * This task should never exit; it should end with some kind of infinite loop, even if empty.
  */
-void operatorControl() {
-	while (1) {
-		/*MotorSet(DRIVETRAIN_LB, -joystickGetAnalog(1, 2));  legacy drivetrain code
-		MotorSet(DRIVETRAIN_LF, -joystickGetAnalog(1, 2));
-		MotorSet(DRIVETRAIN_RB, joystickGetAnalog(1, 3));
-		MotorSet(DRIVETRAIN_RF, joystickGetAnalog(1, 3));
-		*/
+void operatorControl(){
+	while(1){
+		tankDrive();
+		tankDrive();
+		mobileGoal();
+		linearGear();
+		chainBar();
+		coneGrabber();
 		
-		tankdrive();	
-		lineargear();
-		conegrabber();
-		//goalgrabber();
-		//ploopliftgoal();
-		chainbar();
-		//calibrate();
-		delay(10);
+		delay(20);
 	}
 }

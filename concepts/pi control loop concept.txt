@@ -13,5 +13,5 @@ while(getEncoder(...) <= desiredValue) {
 	motorSet(<port>, CurrSpeed);
 	motorSet(<port>, CurrSpeed);
 	motorSet(<port>, CurrSpeed);
-	delay(25);
+	delay(10);
 }

@@ -1,0 +1,18 @@
+changes done today:
+-changed conegrabber speeds from 127 to 90
+-made a p loop for going forward in autonomous, need desiredValue (placeholder value is 1800)*
+-initialized drivetrain encoders
+-changed a linear gear speed from 127 to 100
+-changed the condition for coneGrabber and linearGear and chainBar 
+ from joystickGetDigital(2, 7, JOY_DOWN) to
+ joystickGetDigital(2, 7, JOY_DOWN) || 0
+-organised and expanded subsystems.h
+-roasted michelle in the code
+-removed the roast
+
+*will be in subsystems.c for now, but potentially will be moved to another .c file preferably
+ not opcontrol.c
+
+
+tests done today:
+-eh

@@ -37,15 +37,7 @@ void initializeIO() {
  * can be implemented in this task if desired.
  */
 void initialize() {
-  //start with motors off and slewTarget=0
-  int slewTarget[10];
-  for (int i=0; i<10; i++) {
-    slewTarget[i]=0;
-    motorSet(i+1,slewTarget[i]);
-  } //i am still better than michelle
-  driveEncoderR = encoderInit(SHFT_TOP_PORT, SHFT_BOT_PORT, false);
-  //driveEncoderL = encoderInit( , , false);
-  //task runs in background during driver operation
-  //TASK_PRIORITY_DEFAULT - 1; lower priority than driver control & autonomous
    taskCreate (slewControlTask, TASK_DEFAULT_STACK_SIZE, NULL, TASK_PRIORITY_DEFAULT - 1);
+   DriveEncoderR = encoderInit(SHAFTDRIVE_RB_TOP, SHAFTDRIVE_RB_BOT, is_reversed);
+   DriveEncoderL = encoderInit(SHAFTDRIVE_LB_TOP, SHAFTDRIVE_LB_BOT, is_reversed);
 }
