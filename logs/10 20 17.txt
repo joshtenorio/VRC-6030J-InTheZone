@@ -1,0 +1,8 @@
+changes made today:
+-moved autonomous code to auto.c from subsystems.c 
+
+
+tests done today:
+-i am better than michelle lol
+-tyler is better than michelle lolololololol hehe xd
+-"DUDE HAVE YOU SEEN ME PLAY BASKETBALL" -michelle 10 20 17

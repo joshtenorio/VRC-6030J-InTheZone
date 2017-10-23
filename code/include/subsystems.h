@@ -47,7 +47,7 @@ void mobileGoal();
 void linearGear();
 void chainBar();
 void coneGrabber();
-void goForwardAuto();
+
 
 
 

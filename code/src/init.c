@@ -38,6 +38,5 @@ void initializeIO() {
  */
 void initialize() {
    taskCreate (slewControlTask, TASK_DEFAULT_STACK_SIZE, NULL, TASK_PRIORITY_DEFAULT - 1);
-   DriveEncoderR = encoderInit(SHAFTDRIVE_RB_TOP, SHAFTDRIVE_RB_BOT, is_reversed);
-   DriveEncoderL = encoderInit(SHAFTDRIVE_LB_TOP, SHAFTDRIVE_LB_BOT, is_reversed);
+  
 }

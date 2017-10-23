@@ -84,27 +84,6 @@ void coneGrabber(){
 		}
 	}
 }
-void goForwardAuto() {
-	int kP = .1;
-	int totalError = 0;
-	int desiredValue = 1800;
 
-	while(getEncoder(DriveEncoderR) <= desiredValue) {
-		int currValue = getEncoder;
-		int currError = currValue - desiredValue;
-		
-		int currSpeed = currError * kP;
-		smartMotorSet(MOTOR_DRIVE_LB, CurrSpeed);
-		smartMotorSet(MOTOR_DRIVE_LF, CurrSpeed);
-		smartMotorSet(MOTOR_DRIVE_RB, CurrSpeed);
-		smartMotorSet(MOTOR_DRIVE_RF, CurrSpeed);
-		delay(10);
-	}
-	encoderReset(DriveEncoderR);
-	motorStop(MOTOR_DRIVE_LB);
-	motorStop(MOTOR_DRIVE_RB);
-	motorStop(MOTOR_DRIVE_LF);
-	motorStop(MOTOR_DRIVE_RF);
-}
 
 
