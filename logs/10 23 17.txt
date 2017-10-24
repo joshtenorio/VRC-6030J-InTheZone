@@ -1,0 +1,12 @@
+changes made today:
+-cleaned up code a bit
+-started to conceptualize autonomous, concept is in concepts folder under AutoStationaryGoal
+-tested kP and kI values for <go to mob goal.txt> for autonomous
+
+	
+observations made today:
+-michelle was actually quiet for once
+
+
+tests done today:
+-eh

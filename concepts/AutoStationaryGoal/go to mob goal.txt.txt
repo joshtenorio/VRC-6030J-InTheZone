@@ -1,0 +1,18 @@
+int kP = //i need p constant (probably .1)
+int kI = //i need i constant
+int totalError = 0;
+int desiredValue = 1440; //4 rotations of drivetrain
+
+while(getEncoder(...) <= desiredValue) {
+	int currValue = getEncoder(...);
+	int currError = currValue - desiredValue;
+	totalError += currError;
+	
+	int currSpeed = currError * kP + totalError * kI;
+	motorSet(MOTOR_DRIVE_RB, CurrSpeed);
+	motorSet(MOTOR_DRIVE_RF, CurrSpeed);
+	motorSet(MOTOR_DRIVE_LB, CurrSpeed);
+	motorSet(MOTOR_DRIVE_LF, CurrSpeed);
+	delay(20);
+}
+encoderReset(...);

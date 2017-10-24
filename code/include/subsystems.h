@@ -27,17 +27,11 @@
 #define SHAFTDRIVE_LB_TOP //WARNING SHAFT ENCODERS (ANY PORT, TOP OR BOT) CAN NOT GO ON
 #define SHAFTDRIVE_LB_BOT //PORT 10!!!!!!!!!!
 #define SHAFTDRIVE_RB_TOP
-#define SHAFTDRIVE_RB_BOT
+#define SHAFTDRIVE_RB_BOT //lets get a shaft encoder on linear gear
 
 #define SHAFT_CHAINB_TOP
 #define SHAFT_CHAINB_BOT
 #define POT_CONEG
-
-//Declaring encoders
-Encoder DriveEncoderR
-Encoder DriveEncoderL
-Encoder ChainEncoder
-
 
 ////////////////////////////////////////////////
 //Subsystems called in opcontrol.c and auto.c //

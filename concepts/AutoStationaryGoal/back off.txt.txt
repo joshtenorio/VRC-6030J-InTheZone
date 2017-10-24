@@ -1,0 +1,15 @@
+int kP = .1;
+int desiredValue = -630; //1.75 rotations of drivetrain
+
+while(getEncoder(...) <= desiredValue) {
+	int currValue = getEncoder;
+	int currError = desiredValue - currValue;
+	int currSpeed = kP * currError;
+
+	motorSet(MOTOR_DRIVE_RB, CurrSpeed);
+	motorSet(MOTOR_DRIVE_RF, CurrSpeed);
+	motorSet(MOTOR_DRIVE_LB, CurrSpeed);
+	motorSet(MOTOR_DRIVE_LF, CurrSpeed);
+	delay(25);
+}
+encoderReset(...);
