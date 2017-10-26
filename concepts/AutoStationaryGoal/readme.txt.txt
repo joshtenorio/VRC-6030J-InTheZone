@@ -4,9 +4,9 @@ $ = concept is finished
 # = concept is being worked on
 
 
-!   1. linear gear up
-!   2. chainbar levels so is parallel to ground
-!$  3. go forward towards stationary goal (go forward.txt)
+!$  1. go forward towards stationary goal (go forward.txt)
+!   2. linear gear up
+!   3. chainbar levels so is parallel to ground
 !   4. drop preloaded cone on goal
 !$  5. back off (back off.txt)
 >   6. align robot for easier path to mobile goal

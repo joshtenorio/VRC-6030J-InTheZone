@@ -1,0 +1,16 @@
+void goPark() {
+int kP = .1;
+int desiredValue = <whatever desired value is>; //distance from starting bar 
+
+while(getEncoder(...) <= desiredValue) {
+	int currValue = getEncoder;
+	int currError = desiredValue - currValue;
+	int currSpeed = kP * currError;
+
+	motorSet(MOTOR_DRIVE_LF, CurrSpeed);
+	motorSet(MOTOR_DRIVE_LB, CurrSpeed);
+	motorSet(MOTOR_DRIVE_RF, CurrSpeed);
+	motorSet(MOTOR_DRIVE_RB, CurrSpeed);
+	delay(25);
+}
+}

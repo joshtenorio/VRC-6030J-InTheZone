@@ -1,0 +1,17 @@
+void mobileGoal() {
+  if(joystickGetDigital(1, 5, JOY_UP || 0) {
+    smartMotorSet(MOTORS_MOGO, 75);
+  }
+  else if(joystickGetDigital(1, 5, JOY_DOWN || 0) {
+    smartMotorSet(MOTORS_MOGO, -75);
+  }
+  else if(joystickGetDigital(1, 6, JOY_UP || 0) {
+    smartMotorSet(MOTORS_MOGO, 100);
+  }
+  else if(joystickGetDigital(1, 6, JOY_DOWN || 0) {
+    smartMotorSet(MOTORS_MOGO, -100);
+  }
+  else {
+    smartMotorSet(MOTORS_MOGO, 0);
+  }
+}

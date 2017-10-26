@@ -1,0 +1,15 @@
+PI control loop
+int kP = .1;
+int totalError = 0;
+int desiredValue = <pick one>;
+
+while(getEncoder(...) <= desiredValue) {
+int currValue = getEncoder(...);
+int currSpeed = kP(currError + totalError);
+int currError = currValue - desiredValue;
+int totalError+= currError;
+
+int currSpeed = kP * totalError;
+smartMotorSet(<port>, currSpeed);
+delay(100);
+}

@@ -1,0 +1,32 @@
+changes made today:
+-lowered chainbar speed to 70 from 100
+-cleaned up mobile goal code
+-made chainbar code easier to read
+-added #define for controller ports, havent implemented them into code
+-removed #define pot coneg because were not putting a potentiometer there
+-cleaned up cone grabber cone
+-cleaned up linear gear code
+
+i am still better than michelle
+
+
+tests done today:
+
+Chainbar test
+-testing to see if chainbar actually works
+-test one: chainbar goes pretty fast, chainbar falls down if it goes up and no input is activated
+           speeds could be lowered, or hardware team is to blame. trying lowered speeds for test 2
+-test two: chainbar is slower speed (probably more manageble for driver) but still falls if input
+           is not held
+-conclusion: hypothesis of chainbar working is true and supported, but improvements can be made
+
+elaina's interrogation of gabe #1:
+-interrogatting to find what gabe is like
+-test one: gabe likes the color crimson
+-test two: gabe likes bunnies and cats
+-conclusion: liking crimson and bunnies and cats dont go together
+
+Mobile goal test:
+-testing to see if it works without mobile goal
+-test one: mobile goal code works, but gets caught on a motor
+-conclusion: hardware team is very shameful

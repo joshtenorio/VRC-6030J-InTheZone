@@ -1,0 +1,11 @@
+changes made today:
+-started a concept for autonomous where robot goes to parking square (AutoPark folder)
+-made if/else statements in subsystems.c easier to read
+-researched PID controllers for a better understanding and equilibrium
+
+
+tests done today:
+
+mobile goal test:
+-testing to see if it works
+-test one: doesnt work
