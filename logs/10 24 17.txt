@@ -1,6 +1,6 @@
 changes made today:
 -lowered chainbar speed to 70 from 100
--cleaned up mobile goal code
+-cleaned up mobile goal code (from if/else to if/elseif/else)
 -made chainbar code easier to read
 -added #define for controller ports, havent implemented them into code
 -removed #define pot coneg because were not putting a potentiometer there

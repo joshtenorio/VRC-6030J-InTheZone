@@ -3,10 +3,16 @@
 ////////////////////
 //Controller Ports//
 ////////////////////
-#define VEXNET_JOY  1
-#define PARTNER_JOY 2
-#define JOY_X_AXIS 
-#define JOY_Y_AXIS
+#define VEXNET_JOY         1
+#define PARTNER_JOY        2
+#define JOY_L_X_AXIS       4
+#define JOY_L_Y_AXIS       3
+#define JOY_R_X_AXIS       1
+#define JOY_R_Y_AXIS       2
+#define JOY_L_BUMPER       5
+#define JOY_R_BUMPER       6
+#define JOY_L_BUTTONGROUP  7
+#define JOY_R_BUTTONGROUP  8
 
 
 ///////////////
@@ -21,28 +27,24 @@
 #define MOTOR_CONEG      5  // Connected through Power Expander A
 #define MOTORS_CHAINB    9  // Y-cabled through Power Expander B&C to L&R motors, respectively (R is wiring-reversed)
 
+
+
 ////////////////
 //Sensor Ports//
 ////////////////
-#define SHAFTDRIVE_LB_TOP //WARNING SHAFT ENCODERS (ANY PORT, TOP OR BOT) CAN NOT GO ON
-#define SHAFTDRIVE_LB_BOT //PORT 10!!!!!!!!!!
-#define SHAFTDRIVE_RB_TOP
-#define SHAFTDRIVE_RB_BOT //lets get a shaft encoder on linear gear
+#define SHAFTDRIVE_LB          2,3
+#define SHAFTDRIVE_RB          4,5
+#define SHAFTDRIVE_CHAINB      6,7
+#define SHAFTDRIVE_CONEG       8,9
+//any shaft encoder cannot go in port 10
 
-#define SHAFT_CHAINB_TOP
-#define SHAFT_CHAINB_BOT
+#define SHAFT_CHAINB 
 #define POT_CONEG
 
-////////////////////////////////////////////////
-//Subsystems called in opcontrol.c and auto.c //
-////////////////////////////////////////////////
 void tankDrive();
 void mobileGoal();
 void linearGear();
 void chainBar();
 void coneGrabber();
-
-
-
 
 

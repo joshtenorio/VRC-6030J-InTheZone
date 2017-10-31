@@ -1,0 +1,12 @@
+changes made today:
+-fixed some spaces
+-made some more spaces in mobileGoal and coneGrabber
+-removed || 0 stuff
+-making a concept for PI control loop that can be copy-pasted anywhere, needs to be checked
+-fixed a conegrabber value
+-double checked mobile goal code
+-reduced linearGear up speed from 127 to 70
+
+
+
+tests done today:

@@ -1,15 +1,53 @@
 PI control loop
-int kP = .1;
-int totalError = 0;
-int desiredValue = <pick one>;
+int totalError();
+int desiredValue = <some value>
 
-while(getEncoder(...) <= desiredValue) {
+while(getEncoder(...)<=desiredValue) {
+
+int totalError() {
+
 int currValue = getEncoder(...);
-int currSpeed = kP(currError + totalError);
-int currError = currValue - desiredValue;
-int totalError+= currError;
-
-int currSpeed = kP * totalError;
-smartMotorSet(<port>, currSpeed);
-delay(100);
+int currError = desiredValue - currValue;
+int integralError += CurrValue;
+return integralError;
+delay(200);
 }
+currSpeed = kP(currError + totalError);
+}
+
+
+
+
+
+
+
+
+PID control loop
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

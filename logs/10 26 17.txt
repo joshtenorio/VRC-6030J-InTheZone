@@ -9,3 +9,4 @@ tests done today:
 mobile goal test:
 -testing to see if it works
 -test one: doesnt work
+-conclusion: elseif statements dont work, reverting them to pre 10/24 change

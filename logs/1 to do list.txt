@@ -1,1 +1,2 @@
--adjust PI loop concept
+-have someone check PI control loop
+-decide on autonomous strategy
