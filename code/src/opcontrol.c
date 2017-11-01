@@ -31,8 +31,7 @@
  */
 void operatorControl(){
   while(1){
-    tankDrive();
-    tankDrive();
+    opcontrolTankDrive();
     mobileGoal();
     linearGear();
     chainBar();

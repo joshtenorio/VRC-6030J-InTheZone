@@ -21,34 +21,4 @@ currSpeed = kP(currError + totalError);
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  

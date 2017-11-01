@@ -1,0 +1,10 @@
+changes made today:
+-setting up code for encoders
+-future logs will be made in notepad++
+-removed potconeg from #define statements because were not using a potentiometer for that
+-cleaned up some stuff in auto.c
+-made a opcontrolActions.c file for actions specific to driver control
+-also made a opcontrolActions.h file so uh yeah
+-making autolibrary.c and autolibrary.h files so auto.c stays clean
+
+tests done today:

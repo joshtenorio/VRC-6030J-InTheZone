@@ -1,22 +1,10 @@
 #include "main.h"
 
-void tankDrive(){
-  if(abs(joystickGetAnalog(1, 3))>20){
-    smartMotorSet(MOTOR_DRIVE_LF, joystickGetAnalog(1, 3));
-    smartMotorSet(MOTOR_DRIVE_LB, joystickGetAnalog(1, 3));
-  }
-  else {
-    smartMotorSet(MOTOR_DRIVE_LF, 0);
-    smartMotorSet(MOTOR_DRIVE_LB, 0);
-  }
-  if(abs(joystickGetAnalog(1, 2))>20){
-    smartMotorSet(MOTOR_DRIVE_RF, -joystickGetAnalog(1, 2));
-    smartMotorSet(MOTOR_DRIVE_RB, -joystickGetAnalog(1, 2));
-  }
-  else {
-    smartMotorSet(MOTOR_DRIVE_RF, 0);
-    smartMotorSet(MOTOR_DRIVE_RB, 0);
-    }
+void tankDrive(short leftSpeed, short rightSpeed){
+  smartMotorSet(MOTOR_DRIVE_LF, leftSpeed);
+  smartMotorSet(MOTOR_DRIVE_LB, leftSpeed);
+  smartMotorSet(MOTOR_DRIVE_RF, -rightSpeed);
+  smartMotorSet(MOTOR_DRIVE_RB, -rightSpeed);
 }
 
 void mobileGoal(){

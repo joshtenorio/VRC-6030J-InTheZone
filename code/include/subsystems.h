@@ -37,11 +37,15 @@
 #define SHAFTDRIVE_CHAINB      6,7
 #define SHAFTDRIVE_CONEG       8,9
 //any shaft encoder cannot go in port 10
+//declaring encoders...
+Encoder leftdriveshaft
+Encoder rightdriveshaft
 
-#define SHAFT_CHAINB 
-#define POT_CONEG
 
-void tankDrive();
+///////////////////////
+//PrOtOtYpE fUnCtIoNs//
+///////////////////////
+void tankDrive(short leftSpeed, short rightSpeed);
 void mobileGoal();
 void linearGear();
 void chainBar();

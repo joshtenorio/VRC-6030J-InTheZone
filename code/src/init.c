@@ -38,5 +38,6 @@ void initializeIO() {
  */
 void initialize() {
    taskCreate (slewControlTask, TASK_DEFAULT_STACK_SIZE, NULL, TASK_PRIORITY_DEFAULT - 1);
-
+   leftdriveshaft = encoderInit(SHAFTDRIVE_LB, false);
+   rightdriveshaft = encoderInit(SHAFTDRIVE_RB, true);
 }
