@@ -15,6 +15,7 @@
 #define JOY_R_BUTTONGROUP  8
 
 
+
 ///////////////
 //Motor Ports//
 ///////////////
@@ -38,9 +39,10 @@
 #define SHAFTDRIVE_CONEG       8,9
 //any shaft encoder cannot go in port 10
 //declaring encoders...
-Encoder leftdriveshaft
-Encoder rightdriveshaft
-
+Encoder leftdriveshaft;
+Encoder rightdriveshaft;
+Encoder shaftchainb;
+Encoder shaftconeg;
 
 ///////////////////////
 //PrOtOtYpE fUnCtIoNs//

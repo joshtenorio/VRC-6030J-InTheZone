@@ -11,3 +11,5 @@
 //declaring encoders...
 Encoder leftdriveshaft;
 Encoder rightdriveshaft;
+Encoder shaftchainb;
+Encoder shaftconeg;

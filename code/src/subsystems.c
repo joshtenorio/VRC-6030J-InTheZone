@@ -43,7 +43,7 @@ void linearGear(){
       smartMotorSet(MOTORS_LINEAR, 0);
     }
   }
-}
+} 
 
 void chainBar(){
   if(joystickGetDigital(2, 5, JOY_UP)){
@@ -72,7 +72,6 @@ void coneGrabber(){
     }
   }
 }
-
 
 
 

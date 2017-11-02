@@ -1,0 +1,2 @@
+this concept is for picking whether or not we want partner controls, is accessible without LED. basically it works
+using isJoystickConnected

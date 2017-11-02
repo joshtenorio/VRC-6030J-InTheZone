@@ -1,0 +1,14 @@
+changes made today:
+-initialized chainbar and cone grabber encoders
+-declared relevant encoders also
+-making a debug function that will print values to debug terminal
+-also roasted michelle in debug function
+
+
+tests done today:
+full test:
+-i got the robot stuck in an inifinite loop LUL
+full test 2:
+-everything works except for mobile goal, but its a hardware problem
+ -like the mobile goal thing works but improvements can be made, as always
+ 
