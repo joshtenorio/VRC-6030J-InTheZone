@@ -9,7 +9,7 @@
 #define SHAFTDRIVE_CONEG       8,9
 //any shaft encoder cannot go in port 10
 //declaring encoders...
-Encoder leftdriveshaft;
-Encoder rightdriveshaft;
-Encoder shaftchainb;
-Encoder shaftconeg;
+Encoder leftDriveShaft;
+Encoder rightDriveShaft;
+Encoder shaftChainB;
+Encoder shaftConeG;

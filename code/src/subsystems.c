@@ -10,24 +10,14 @@ void tankDrive(short leftSpeed, short rightSpeed){
 void mobileGoal(){
   if(joystickGetDigital(1, 5, JOY_UP)){
     smartMotorSet(MOTORS_MOGO, 75);
-  }
-  else {
-    if(joystickGetDigital(1, 5, JOY_DOWN)){
-      smartMotorSet(MOTORS_MOGO, -75);
-    }
-    else{
-      if(joystickGetDigital(1, 6, JOY_UP)){
-        smartMotorSet(MOTORS_MOGO, 100);
-      }
-      else {
-        if(joystickGetDigital(1, 6, JOY_DOWN)){
-          smartMotorSet(MOTORS_MOGO, -100 );
-        }
-        else {
-          smartMotorSet(MOTORS_MOGO, 0);
-        }
-      }
-    }
+  } else if(joystickGetDigital(1, 5, JOY_DOWN)){
+    smartMotorSet(MOTORS_MOGO, -75);
+  } else if(joystickGetDigital(1, 6, JOY_UP)){
+    smartMotorSet(MOTORS_MOGO, 100);
+  } else if(joystickGetDigital(1, 6, JOY_DOWN)){
+    smartMotorSet(MOTORS_MOGO, -100 );
+  } else {
+    smartMotorSet(MOTORS_MOGO, 0);
   }
 }
 

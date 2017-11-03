@@ -31,6 +31,7 @@
 #include "subsystems.h"
 #include "opcontrolActions.h"
 #include "autolibrary.h"
+#include "PID.h"
 
 // Allow usage of this file in C++ programs
 #ifdef __cplusplus

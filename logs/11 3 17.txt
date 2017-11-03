@@ -1,0 +1,8 @@
+changes made today:
+-fixed capitalizations for encoders
+-made PID.c and PID.h files
+-made a generic P function
+
+
+
+tests done today:
