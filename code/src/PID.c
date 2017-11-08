@@ -1,7 +1,11 @@
 #include "main.h"
 
-float P(float current, float target, float kP){
+int P(float current, float target, float kP){
   float error = target - current;
-  float motorSpeed = error * kP;
+  int motorSpeed = error * kP;
   return motorSpeed;
+}
+
+float PI(float target, float current, float kP, float kI) {
+  
 }

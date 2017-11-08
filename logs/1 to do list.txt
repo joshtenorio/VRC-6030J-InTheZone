@@ -1,4 +1,4 @@
--have someone check PI control loop
--test drivetrain
+
+
 -roast michelle
--decide on autonomous strategy
+

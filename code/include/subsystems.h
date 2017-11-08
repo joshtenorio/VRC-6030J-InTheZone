@@ -47,10 +47,10 @@ Encoder shaftConeG;
 ///////////////////////
 //PrOtOtYpE fUnCtIoNs//
 ///////////////////////
-void tankDrive(short leftSpeed, short rightSpeed);
-void mobileGoal();
-void linearGear();
-void chainBar();
-void coneGrabber();
+void tankDrive(int leftSpeed, int rightSpeed);
+void mobileGoal(int speed);
+void linearGear(int speed);
+void chainBar(int speed);
+void coneGrabber(int speed);
 
 

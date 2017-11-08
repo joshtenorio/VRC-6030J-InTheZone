@@ -1,0 +1,21 @@
+changes made today:
+-went over P function in PID.c
+-learned technical writing 101 from Barin
+-made proper documentation for P function
+-made mobile goal function a little bit better
+-man ternary operators are fun
+-also improved linear gear code
+-and cone grabber
+-and chainbar
+-started putting stuff in autoLibrary.c
+-made a thing for autonomous chainbar
+
+
+
+
+tests done today:
+-hardware team tested robot
+  everything except mobile goal AFAIK
+  it works, it can also pick up cones
+  would be better if they waited for PID control for chainbar
+  and if they fixed cortex stuff first

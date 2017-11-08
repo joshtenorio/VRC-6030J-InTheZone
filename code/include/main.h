@@ -30,7 +30,7 @@
 #include "motor.h"
 #include "subsystems.h"
 #include "opcontrolActions.h"
-#include "autolibrary.h"
+#include "autoLibrary.h"
 #include "PID.h"
 
 // Allow usage of this file in C++ programs

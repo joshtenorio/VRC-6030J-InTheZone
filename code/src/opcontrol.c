@@ -32,10 +32,10 @@
 void operatorControl(){
   while(1){
     opcontrolTankDrive();
-    mobileGoal();
-    linearGear();
-    chainBar();
-    coneGrabber();
+    opcontrolMobileGoal();
+    opcontrolLinearGear();
+    opcontrolChainBar();
+    opcontrolConeGrabber();
     printf("Chainbar value: %d\n", encoderGet(encoderChainB));
     //printf("driveright value: %d\n", encoderGet(rightDriveShaft));
     //printf("driveleft value: %d\n", encoderGet(leftDriveShaft));
