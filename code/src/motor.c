@@ -8,13 +8,13 @@ void slewControlTask(void * parameter){
   
   while(1){
     if (isEnabled()) { //Only runs if competition switch is enabled
-    for (int i = 0; i < 10; i++) { //Cycle through each motor port
-      slewTmp = motorGet(i+1); //returns the last speed sent to the motor
-      slewTmp += min(15, abs(slewTarget[i]-slewTmp)) * (slewTarget[i]-slewTmp)/abs(slewTarget[i]-slewTmp);
-      motorSet(i+1, slewTmp);
+      for (int i = 0; i < 10; i++) { //Cycle through each motor port
+        slewTmp = motorGet(i+1); //returns the last speed sent to the motor
+        slewTmp += min(15, abs(slewTarget[i]-slewTmp)) * (slewTarget[i]-slewTmp)/abs(slewTarget[i]-slewTmp);
+        motorSet(i+1, slewTmp);
+      }
     }
-  }
-  wait(20);
+    wait(20);
   }
 }
 

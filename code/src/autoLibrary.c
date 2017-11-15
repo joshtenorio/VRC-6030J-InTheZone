@@ -1,7 +1,7 @@
 #include "main.h"
-
+/*
 void autoTankDrive(int target){
-  current = encoderGet(rightDriveShaft);
+  int current = encoderGet(rightDriveShaft);
 }
 
 void autoChainBar(int target){
@@ -11,3 +11,5 @@ void autoChainBar(int target){
   int speed = P(current, target, kP);
   chainBar(speed);
 }
+*/
+

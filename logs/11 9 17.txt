@@ -1,0 +1,12 @@
+changes made today:
+-lowered chainbar speeds from 100 to 75
+-planned changes for chainbar
+  -for chainbar:
+    make go slower
+    hold last position
+    PID for stacking
+-started working on chainbar holding position  
+
+
+
+tests done today:

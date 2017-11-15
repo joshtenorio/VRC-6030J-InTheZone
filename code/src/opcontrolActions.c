@@ -28,10 +28,10 @@ void opcontrolMobileGoal(){
 void opcontrolLinearGear(){
   int speed;
   if(joystickGetDigital(2, 6, JOY_UP)){
-    speed = 70;
+    speed = 127;
   }
   else if(joystickGetDigital(2, 6, JOY_DOWN)){
-    speed = -50;
+    speed = -127;
   }
   else {
     speed = 0;
@@ -55,14 +55,19 @@ void opcontrolConeGrabber(){
 
 void opcontrolChainBar(){ 
   int speed;
+  //int target = 0;
   if(joystickGetDigital(2, 5, JOY_UP)){
-    speed = 100;
+    speed = 75;
+    //target = encoderGet(encoderChainB);
   }
   else if(joystickGetDigital(2, 5, JOY_DOWN)){
-    speed = -100;
+    speed = -75;
+    //target = encoderGet(encoderChainB);
   }
   else {
     speed = 0;
+    //autoChainBar(target);
   }
   chainBar(speed);
 }
+

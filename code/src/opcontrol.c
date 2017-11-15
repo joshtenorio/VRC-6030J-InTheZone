@@ -36,7 +36,7 @@ void operatorControl(){
     opcontrolLinearGear();
     opcontrolChainBar();
     opcontrolConeGrabber();
-    printf("Chainbar value: %d\n", encoderGet(encoderChainB));
+    //printf("Chainbar value: %d\n", encoderGet(encoderChainB));
     //printf("driveright value: %d\n", encoderGet(rightDriveShaft));
     //printf("driveleft value: %d\n", encoderGet(leftDriveShaft));
     //printf("conegrabber i am better than michelle value: %d", encoderGet(shaftConeG));

@@ -1,0 +1,14 @@
+/*
+void opcontrolChainBar(){
+  int speed;
+  int chainbarArray[3];
+  chainbarArray[0] = encoderGet(encoderChainB);
+  delay(50);
+  chainbarArray[1] = encoderGet(encoderChainB);
+  delay(50);
+  chainbarArray[2] = encoderGet(encoderChainB);
+  int currValue = encoderGet(encoderChainB);
+  
+  
+}
+*/

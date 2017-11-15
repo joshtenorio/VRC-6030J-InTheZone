@@ -1,4 +1,12 @@
-
+-for chainbar:
+  make go slower <>
+  hold last position <>
+  PID for stacking
+  
+  
+-when relevant sensors are attatched make PIDs for:
+  mobile goal
+  autostacking (remove cone and make chainbar/linear gear go up)
+ 
 
 -roast michelle
-

@@ -52,5 +52,6 @@ void mobileGoal(int speed);
 void linearGear(int speed);
 void chainBar(int speed);
 void coneGrabber(int speed);
+void conceptChainBar();
 
 

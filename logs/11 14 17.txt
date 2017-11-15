@@ -1,0 +1,13 @@
+changes made today:
+-made concept chainbar better
+-chainbar encoder got kicked off so now we have no sensors YAAAAAAAAAAAY
+-commented out the relevant code that used chainbar encoder
+-maxed out linear gear speeds (speeds now 127 and -127)
+-if we can get shaft encoder or potentiometer for mobile goal then we could probably make a PID function for driver control
+-check to do list for stuff to do
+
+
+
+
+tests done today:
+-full robot test for driver practice

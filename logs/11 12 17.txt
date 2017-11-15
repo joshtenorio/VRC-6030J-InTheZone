@@ -1,0 +1,7 @@
+changes made today:
+-did bandaid fix for chainbar
+
+
+
+tests done today:
+-nope

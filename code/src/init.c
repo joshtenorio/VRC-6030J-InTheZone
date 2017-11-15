@@ -41,6 +41,6 @@ void initialize() {
    
    //leftdriveshaft = encoderInit(SHAFTDRIVE_LB, false);
    //rightdriveshaft = encoderInit(SHAFTDRIVE_RB, true);
-   encoderChainB = encoderInit(ENCODER_CHAINB, false);
+   //encoderChainB = encoderInit(ENCODER_CHAINB, false);
    //shaftconeg = encoderInit(SHAFTDRIVE_CONEG, false);
 }
