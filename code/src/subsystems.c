@@ -22,7 +22,18 @@ void chainBar(int speed){
 void coneGrabber(int speed){
   smartMotorSet(MOTOR_CONEG, speed);
 }
-
+/*
+void autoReset() {         
+  //need values for target
+  chainbarTarget = <need value>; //when chainbar is on opposite side of mobile goal
+  lineargearMax = <need value>; //highest point of the linear gear
+  lineargearMin = <need value>; //lowest point of the linear gear
+  autoLinearGear(linearGearMax);
+  autoChainBar(chainbarTarget); //might need delay values in between movements so 
+  autoLinearGear(lineargearMin);
+  
+}
+*/
 
 
 

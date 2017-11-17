@@ -53,5 +53,12 @@ void linearGear(int speed);
 void chainBar(int speed);
 void coneGrabber(int speed);
 void conceptChainBar();
+/*purpose of this autoReset is to bring chainbar on opposite
+side of the mobile goal lifter. To do this, bring linear gear to highest
+position and bring chainbar over, then lower linear gear. This means that
+it'll be easier to get more cones since this function resets the linear gear
+and chainbar position to the "get cones" position
+*/
+//void autoReset();
 
 

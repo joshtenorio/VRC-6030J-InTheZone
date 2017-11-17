@@ -6,7 +6,14 @@
   
 -when relevant sensors are attatched make PIDs for:
   mobile goal
-  autostacking (remove cone and make chainbar/linear gear go up)
+  autostacking (remove cone and make chainbar/linear gear go up) and for driver loads
+  auto reset <>
  
 
--roast michelle
+-roast michelle (execute immediately)
+
+
+
+-think of autonomous plan
+  stack preload on stationary goal (sensors on drivetrain, linear gear, chainbar, cone manipulator sensor not needed)
+  drive to parking square (no sensors needed)

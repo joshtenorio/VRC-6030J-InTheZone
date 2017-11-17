@@ -13,6 +13,8 @@ Encoder leftDriveShaft;
 Encoder rightDriveShaft;
 Encoder shaftChainB;
 Encoder shaftConeG;
+Encoder shaftLinearGear;
 
-void autoTankDrive();
-void autoChainBar();
+void autoTankDrive(int target);
+void autoChainBar(int target);
+void autoLinearGear(int target);

@@ -1,0 +1,14 @@
+changes made today:
+-lemon bots are bad (not)
+-michelle made spreadsheet for scouting other teams
+-made a function for linear gear in autonomous
+  though looking at sensors we have it would be hard to fit in a linear gear
+-finished working on autoTankDrive
+-made an autoReset function, have barin or jon luc or zack check it
+
+
+
+tests done today:
+-robot drivers practiced today
+  we also tipped the robot
+  mobile goal lifter gets crooked sometimes
