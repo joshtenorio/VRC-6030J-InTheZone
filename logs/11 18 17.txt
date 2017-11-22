@@ -1,0 +1,22 @@
+campo verde qualifers
+
+
+changes made today:
+-made an alternative autonomous that just parks robot and doesnt use mobile goal
+-also shared scouting spreadsheet with knights and squires
+-made an auto function for mobile goal
+-made a release cone function for driver control, on partner joystick button group 7 up
+-i died during first judging lul
+-fixed a problem with the release cone function ~15 minutes before match LOL WHEW
+-removed release function, needs further testing
+
+
+qualifying matches:
+1. lost, enemies were too good. stacking only one cone on 20 pt goal but thats ok
+2. won, could've been a lot better 
+3. 
+
+
+
+
+elimination matches:

@@ -55,18 +55,53 @@ void opcontrolConeGrabber(){
 
 void opcontrolChainBar(){ 
   int speed;
-  //int target = 0;
+  int target = 0;
   if(joystickGetDigital(2, 5, JOY_UP)){
     speed = 75;
-    //target = encoderGet(encoderChainB);
+    target = encoderGet(encoderChainB);
   }
   else if(joystickGetDigital(2, 5, JOY_DOWN)){
     speed = -75;
-    //target = encoderGet(encoderChainB);
+    target = encoderGet(encoderChainB);
   }
   else {
     speed = 0;
-    //autoChainBar(target);
+    autoChainBar(target);
   }
   chainBar(speed);
 }
+
+/*
+void opcontrolChainBarAndConeG(){
+  int chainbarSpeed;
+  int conegSpeed;
+  if(joystickGetDigital(2, 7, JOY_UP)){
+    chainbarSpeed = -75;
+    conegSpeed = -90;
+  }
+  else if(joystickGetDigital(2, 5, JOY_UP)){
+    chainbarSpeed = 75;
+    conegSpeed = 0;
+  }
+  else if(joystickGetDigital(2, 5, JOY_DOWN)){
+    chainbarSpeed = -75;
+    conegSpeed = 0;
+  }
+  else if(joystickGetDigital(2, 7, JOY_DOWN)){
+    chainbarSpeed = 0;
+    conegSpeed = 90;
+  }
+  else if(joystickGetDigital(2, 8, JOY_DOWN)){
+    chainbarSpeed = 0;
+    conegSpeed = -90;
+  }
+  else{
+    chainbarSpeed = 0;
+    conegSpeed = 0;
+  }
+  chainBar(chainbarSpeed);
+  coneGrabber(conegSpeed);
+}
+*/
+
+

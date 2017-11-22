@@ -5,3 +5,4 @@ void opcontrolMobileGoal();
 void opcontrolLinearGear();
 void opcontrolConeGrabber();
 void opcontrolChainBar();
+void opcontrolChainBarAndConeG();

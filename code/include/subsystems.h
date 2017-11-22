@@ -1,21 +1,5 @@
 #pragma once
 
-////////////////////
-//Controller Ports//
-////////////////////
-#define VEXNET_JOY         1
-#define PARTNER_JOY        2
-#define JOY_L_X_AXIS       4
-#define JOY_L_Y_AXIS       3
-#define JOY_R_X_AXIS       1
-#define JOY_R_Y_AXIS       2
-#define JOY_L_BUMPER       5
-#define JOY_R_BUMPER       6
-#define JOY_L_BUTTONGROUP  7
-#define JOY_R_BUTTONGROUP  8
-
-
-
 ///////////////
 //Motor Ports//
 ///////////////
@@ -36,13 +20,13 @@
 #define SHAFTDRIVE_LB          2,3
 #define SHAFTDRIVE_RB          4,5
 #define ENCODER_CHAINB         6,7
-#define SHAFTDRIVE_CONEG       8,9
+#define ENCODER_LINEARG        8,9
 //any shaft encoder cannot go in port 10
 //declaring encoders...
 Encoder leftDriveShaft;
 Encoder rightDriveShaft;
 Encoder encoderChainB;
-Encoder shaftConeG;
+Encoder shaftLinearGear;
 
 ///////////////////////
 //PrOtOtYpE fUnCtIoNs//

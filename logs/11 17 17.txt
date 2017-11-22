@@ -1,0 +1,7 @@
+changes made today:
+-made shameful time delayed autonomous bcuz we have no sensors yaaaay
+-made some functions in autoLibrary.c that would be useful for timed autonomous
+
+tests done today:
+-drivers practiced driving
+  mobile goal lifter gets crooked if mobile goal isnt completely centered so hardware ppl changed it a bit

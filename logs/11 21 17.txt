@@ -1,0 +1,13 @@
+changes made today:
+-i want to test simple autonomous stuff (using while loops to keep autonomous running)
+-made some documentary for PI and PID loop
+-fixed syntax for autoTankDrive()
+-michelle got high on pop rocks
+-"oh yea our autonomous is a mini michelle" -Elaina
+  "does that mean we need a VEX speaker" -Josh
+-finished PI loop, needs to be checked by Barin or Zack or Jon Luc
+-PID loop still needs work
+-documentation for PI and PID loop are done
+
+
+tests done today:

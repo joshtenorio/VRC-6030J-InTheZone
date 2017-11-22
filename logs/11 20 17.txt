@@ -1,0 +1,11 @@
+changes made today:
+-started working on PI loop
+-hardware team actually put in sensors wooooo
+  time to see how long until they remove it
+-finished PI loop, should have barin or zack check it
+-fixed library.h
+-made a thing in library.c
+-"we designed robot to be slick and sexy" -Elaina 2k17
+
+
+tests done today:
