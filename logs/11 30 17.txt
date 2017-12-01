@@ -1,0 +1,7 @@
+changes made today:
+-found competition switch thx casey
+-finalized PID loop use, only P loop is available right now
+-tested chainbar hold position, kP needs tweaking. it could be higher
+
+
+tests done today:

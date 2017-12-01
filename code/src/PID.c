@@ -1,36 +1,95 @@
 #include "main.h"
 
-int P(float current, float target, float kP){
-  float error = target - current;
-  int motorSpeed = error * kP;
+unsigned long startTimes[10] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+float targetOld[10] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+
+int PID(float current, float target, unsigned short mechanismIdentifier, float kP, float kI, float kD){
+  if(target != targetOld[mechanismIdentifier] || startTimes[mechanismIdentifier] == 0){
+    startTimes[mechanismIdentifier] = millis();
+    targetOld[mechanismIdentifier] = target;
+  }
+  //long elapsedTime = runTime(startTimes[mechanismIdentifier]);
+  
+  float currError = target - current;
+  /*float error[2] = {0,0}; //left to right = recent to old
+  if(error[0] != error[1]){
+    error[1] = error[0];
+    error[0] = currError;
+  }
+  float integral = integral + error[0]*elapsedTime;
+  float derivative = */
+ 
+  
+  
+  float pTerm = kP*currError;
+  float iTerm = kI*0;
+  float dTerm = kD*0;
+  int motorSpeed = pTerm + iTerm + dTerm;
   return motorSpeed;
 }
-
-int PI(float current, float target, float kP, float kI){
-  const int startTime = millis();
-  float error = target - current;
-  int elapsedTime = runTime(startTime);
-  float integral += error*elapsedTime;
-  float pTerm = kP*error;
-  float iTerm = kI*integral;
-  int motorSpeed = pTerm + iTerm;
-  return motorSpeed;
-}
-
-int PID(float current, float target, float kP, float kI, float kD){
-  const int startTime = millis();
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+/*
+  const long startTime = millis();
+  float elapsedTime = (float)runTime(startTime);
   float errror = target - current;
-  int elapsedTime = runTime(startTime);
   float error[2] = {0,0};
   if(errror != error[0]){
     error[1] = error[0];
     error[0] = errror;
   }
-  float integral = integral + error*runTime;
-  float derivative = (error[1] - error[0]) / runTime;
-  float pTerm = error*kP;
+  float integral = integral + errror*elapsedTime;
+  float derivative = (error[1] - error[0]) / elapsedTime;
+  float pTerm = errror*kP;
   float iTerm = kI*integral;
-  //float dTerm = 
-  //int motorSpeed = pTerm + iTerm + dTerm;
-  //return motorSpeed;
+  float bias = 0;       //what
+  float dTerm = kD*derivative + bias;
+  float motorSpeed = pTerm + iTerm + dTerm;
+  return (int)motorSpeed;
 }
+
+
+int P(float current, float target, float kP){         //HAVE SOMEONE CHECK THESE
+  float error = target - current;
+  float motorSpeed = error * kP;
+  return (int)motorSpeed;
+}
+
+int PI(float current, float target, float kP, float kI){
+  int startTime = 0;
+  float targetOld = 0;
+  if(target != targetOld){
+    startTime = millis();
+    targetOld = target;
+  }
+  float error = target - current;
+  float elapsedTime = (float)runTime(startTime);
+  float integral += error*elapsedTime;
+  float pTerm = kP*error;
+  float iTerm = kI*integral;
+  float motorSpeed = pTerm + iTerm;
+  return (int)motorSpeed;
+
+*/

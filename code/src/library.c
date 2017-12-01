@@ -12,10 +12,8 @@ int error(float current, float target){
   int d = target - current;
   return d;
 }
-int runTime(int startTime){
-  int elapsedTime = 0;
-  const int startTime = millis();
-  int currTime = millis();
-  elapsedTime = currTime - startTime;
+long runTime(long startTime){
+  long currTime = millis();
+  long elapsedTime = currTime - startTime;
   return elapsedTime;
 }

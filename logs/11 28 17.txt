@@ -1,0 +1,8 @@
+changes made today:
+-barin shamed PI and PID loops but P loop ok
+-learned about integrals
+-consolidated P and PI into PID loops, made PID more flexible so if you only want P loop you can get P loop only
+-made mechanism identifiers for subsystems
+-not even 30 minutes into club time and michelle already put two chips in the swear jar OMEGALUL
+
+tests done today:

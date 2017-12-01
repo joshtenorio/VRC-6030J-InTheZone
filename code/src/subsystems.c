@@ -39,7 +39,7 @@ void autoReset() {
 
 
 
-
+/*
 int cbRecentReadingsAdj[3] = {0,0,0}; //Left to right = recent to old
 int cbRecentReadingSummation = 0;
 void conceptChainBar(){
@@ -54,7 +54,7 @@ void conceptChainBar(){
   else { //In case velocity is actually 0
     cbRecentReadingSummation += current;
     if(cbRecentReadingSummation / current == 4 && cbRecentReadingSummation % current == 0){
-      //cbRecentReadingsAdj = {current,current,current};
+      cbRecentReadingsAdj = {current,current,current};
     }
   }
   int angularVelocity = cbRecentReadingsAdj[0] - cbRecentReadingsAdj[1];
@@ -69,3 +69,4 @@ void conceptChainBar(){
     //regular PID but with adjusted constant values
   }
 }
+*/

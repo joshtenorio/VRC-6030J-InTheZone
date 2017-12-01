@@ -7,20 +7,25 @@ void opcontrolTankDrive(){
 
 void opcontrolMobileGoal(){
   int speed;
-  if(joystickGetDigital(1, 5, JOY_UP)){
-    speed = 75;
-  }
-  else if(joystickGetDigital(1, 5, JOY_DOWN)){
-    speed = -75;
-  }
-  else if(joystickGetDigital(1, 6, JOY_UP)){
-    speed = 100;
-  }
-  else if(joystickGetDigital(1, 6, JOY_DOWN)){
-    speed = -100;
-  }
-  else {
+  if(encoderGet(encoderChainB) < 40){
     speed = 0;
+  }
+  else{
+    if(joystickGetDigital(1, 5, JOY_UP)){
+      speed = 75;
+    }
+    else if(joystickGetDigital(1, 5, JOY_DOWN)){
+      speed = -75;
+    }
+    else if(joystickGetDigital(1, 6, JOY_UP)){
+      speed = 100;
+    }
+    else if(joystickGetDigital(1, 6, JOY_DOWN)){
+      speed = -100;
+    }
+    else {
+      speed = 0;
+    }  
   }
   mobileGoal(speed);
 }
@@ -55,21 +60,23 @@ void opcontrolConeGrabber(){
 
 void opcontrolChainBar(){ 
   int speed;
-  int target = 0;
+  int target = NULL;
+  int current = encoderGet(encoderChainB);
   if(joystickGetDigital(2, 5, JOY_UP)){
     speed = 75;
-    target = encoderGet(encoderChainB);
+    target = current;
   }
   else if(joystickGetDigital(2, 5, JOY_DOWN)){
     speed = -75;
-    target = encoderGet(encoderChainB);
+    target = current;
   }
-  else {
-    speed = 0;
-    autoChainBar(target);
+  else if(target != NULL){
+    speed = PID(current, target, PID_CHAINBAR);
   }
   chainBar(speed);
 }
+
+
 
 /*
 void opcontrolChainBarAndConeG(){
