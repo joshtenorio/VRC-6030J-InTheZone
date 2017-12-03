@@ -39,8 +39,10 @@ void initializeIO() {
 void initialize() {
    taskCreate (slewControlTask, TASK_DEFAULT_STACK_SIZE, NULL, TASK_PRIORITY_DEFAULT - 1);
    
-   leftDriveShaft = encoderInit(SHAFTDRIVE_LB, false);
-   rightDriveShaft = encoderInit(SHAFTDRIVE_RB, true);
+   leftDriveShaft = encoderInit(SHAFTDRIVE_LB, true);
+   rightDriveShaft = encoderInit(SHAFTDRIVE_RB, false);
    encoderChainB = encoderInit(ENCODER_CHAINB, false);
    shaftLinearGear = encoderInit(ENCODER_LINEARG, false);
+   
+
 }

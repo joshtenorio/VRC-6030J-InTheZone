@@ -19,8 +19,6 @@ void autoChainBar(int target);
 void autoLinearGear(int target);
 void autoPloopTest();
 void autoPloopTest2();
-void autoTimeTankDrive(int leftSpeed, int rightSpeed, int time);
-void autoTimeMobileGoal(int speed, int time);
 void autoTimeConeG(int speed, int time);
 
 void autoStationaryGoal(); 

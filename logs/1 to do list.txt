@@ -1,10 +1,8 @@
--for chainbar:
-  make go slower <>
-  hold last position <>
-  PID for stacking
-  
-  
-  
+-make letter to future jesters
+
+
+
+
 - get someone to check PID.c
 
 
@@ -21,12 +19,6 @@
  
 
 -roast michelle (execute immediately)
-
-
-
--think of autonomous plan
-  stack preload on stationary goal (sensors on drivetrain, linear gear, chainbar, cone manipulator sensor not needed)
-  drive to parking square (no sensors needed)
   
   
   

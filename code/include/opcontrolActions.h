@@ -5,4 +5,6 @@ void opcontrolMobileGoal();
 void opcontrolLinearGear();
 void opcontrolConeGrabber();
 void opcontrolChainBar();
-void opcontrolChainBarAndConeG();
+void opcontrolDebug();
+
+int cbTarget;  //I need to be global!!!

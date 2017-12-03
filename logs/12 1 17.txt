@@ -1,0 +1,7 @@
+changes made today:
+-finding values for linear gear points (maximum height, stationary goal height, minimum height)
+-chainbar PID seems to be working, but only works for one side, if chainbar goes over to other side it slams down
+-did a lot of other stuff
+
+
+tests done today:

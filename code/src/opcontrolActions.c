@@ -7,10 +7,11 @@ void opcontrolTankDrive(){
 
 void opcontrolMobileGoal(){
   int speed;
-  if(encoderGet(encoderChainB) < 40){
+  /*
+  if(encoderGet(encoderChainB) < 40){   //need new values
     speed = 0;
   }
-  else{
+  else{ */
     if(joystickGetDigital(1, 5, JOY_UP)){
       speed = 75;
     }
@@ -26,7 +27,7 @@ void opcontrolMobileGoal(){
     else {
       speed = 0;
     }  
-  }
+  //}
   mobileGoal(speed);
 }
 
@@ -58,57 +59,42 @@ void opcontrolConeGrabber(){
   coneGrabber(speed);
 }
 
-void opcontrolChainBar(){ 
-  int speed;
-  int target = NULL;
-  int current = encoderGet(encoderChainB);
-  if(joystickGetDigital(2, 5, JOY_UP)){
-    speed = 75;
-    target = current;
-  }
-  else if(joystickGetDigital(2, 5, JOY_DOWN)){
-    speed = -75;
-    target = current;
-  }
-  else if(target != NULL){
-    speed = PID(current, target, PID_CHAINBAR);
-  }
-  chainBar(speed);
-}
 
 
+void opcontrolChainBar(){                         //change code so that cortex gets target position when button is released not pressed
+   int speed;
+   int extern cbTarget;
+   int current = encoderGet(encoderChainB);
+   
+   if(joystickGetDigital(2, 5, JOY_UP)){
+     cbTarget = current;
+     speed = 75;
+     //cbButtonState[0] = 1; //up
+   }
+   else if(joystickGetDigital(2, 5, JOY_DOWN)){
+     cbTarget = current;
+     speed = -75;
+     //cbButtonState[0] = -1; //down
+   }
+   else if(cbTarget != 0){                                           
+     speed =0;
+     //speed = min(75, max(-75,chainbarPID(encoderGet(encoderChainB), -60, 0.7, 0.7)));   //int chainbarPID(float current, float target, float wgkP, float agkP){
+     //cbButtonState[1] = 1; //up
+     //cbButtonState[1] = -1; //down
+   }
+   else {
+     speed=0;
+   }
+   chainBar(speed);
+ }
 
-/*
-void opcontrolChainBarAndConeG(){
-  int chainbarSpeed;
-  int conegSpeed;
+void opcontrolDebug(){
   if(joystickGetDigital(2, 7, JOY_UP)){
-    chainbarSpeed = -75;
-    conegSpeed = -90;
+  encoderReset(encoderChainB);
+  encoderReset(leftDriveShaft);
+  encoderReset(rightDriveShaft);
+  encoderReset(shaftLinearGear);
   }
-  else if(joystickGetDigital(2, 5, JOY_UP)){
-    chainbarSpeed = 75;
-    conegSpeed = 0;
-  }
-  else if(joystickGetDigital(2, 5, JOY_DOWN)){
-    chainbarSpeed = -75;
-    conegSpeed = 0;
-  }
-  else if(joystickGetDigital(2, 7, JOY_DOWN)){
-    chainbarSpeed = 0;
-    conegSpeed = 90;
-  }
-  else if(joystickGetDigital(2, 8, JOY_DOWN)){
-    chainbarSpeed = 0;
-    conegSpeed = -90;
-  }
-  else{
-    chainbarSpeed = 0;
-    conegSpeed = 0;
-  }
-  chainBar(chainbarSpeed);
-  coneGrabber(conegSpeed);
 }
-*/
 
 

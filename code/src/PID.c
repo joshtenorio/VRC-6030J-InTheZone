@@ -3,7 +3,7 @@
 unsigned long startTimes[10] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 float targetOld[10] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
-int PID(float current, float target, unsigned short mechanismIdentifier, float kP, float kI, float kD){
+int PID(float current, float target, int mechanismIdentifier, float kP, float kI, float kD){
   if(target != targetOld[mechanismIdentifier] || startTimes[mechanismIdentifier] == 0){
     startTimes[mechanismIdentifier] = millis();
     targetOld[mechanismIdentifier] = target;
@@ -18,16 +18,27 @@ int PID(float current, float target, unsigned short mechanismIdentifier, float k
   }
   float integral = integral + error[0]*elapsedTime;
   float derivative = */
- 
-  
-  
+
   float pTerm = kP*currError;
   float iTerm = kI*0;
   float dTerm = kD*0;
   int motorSpeed = pTerm + iTerm + dTerm;
   return motorSpeed;
 }
+
+
+int chainbarPID(int current, int target, float wgkP, float agkP){
+  float currError = target - current; //float because multiplied by kP
   
+  if(currError*current < 0){ //against gravity
+    return agkP*currError;
+  } 
+  else { //with gravity
+    return wgkP*currError;  
+  }
+  
+}
+
   
   
   
