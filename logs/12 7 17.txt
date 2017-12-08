@@ -1,0 +1,11 @@
+changes made today:
+-testing autonomous (drive forward 5 rotations)
+  test 2: it goes forward but its drifting towards the left
+
+tests done today:
+
+test one: 170 cm
+test two: 170 cm
+test three: 170 cm
+
+34 cm per rotation (needs to be checked)

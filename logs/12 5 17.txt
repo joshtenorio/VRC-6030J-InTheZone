@@ -1,0 +1,7 @@
+changes made today:
+-sofia is working on autonomous stuff
+-made a preset for chainbar (chainbar holds right above mob goal lifter)
+
+
+
+tests done today:

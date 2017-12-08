@@ -7,11 +7,6 @@ void opcontrolTankDrive(){
 
 void opcontrolMobileGoal(){
   int speed;
-  /*
-  if(encoderGet(encoderChainB) < 40){   //need new values
-    speed = 0;
-  }
-  else{ */
     if(joystickGetDigital(1, 5, JOY_UP)){
       speed = 75;
     }
@@ -27,7 +22,6 @@ void opcontrolMobileGoal(){
     else {
       speed = 0;
     }  
-  //}
   mobileGoal(speed);
 }
 
@@ -61,31 +55,72 @@ void opcontrolConeGrabber(){
 
 
 
-void opcontrolChainBar(){                         //change code so that cortex gets target position when button is released not pressed
+void opcontrolChainBar(){
+   const int positionVertical = 0; //needs to be changed/adjusted
    int speed;
-   int extern cbTarget;
+   int target;
    int current = encoderGet(encoderChainB);
    
-   if(joystickGetDigital(2, 5, JOY_UP)){
-     cbTarget = current;
-     speed = 75;
-     //cbButtonState[0] = 1; //up
-   }
-   else if(joystickGetDigital(2, 5, JOY_DOWN)){
-     cbTarget = current;
-     speed = -75;
-     //cbButtonState[0] = -1; //down
-   }
-   else if(cbTarget != 0){                                           
-     speed =0;
-     //speed = min(75, max(-75,chainbarPID(encoderGet(encoderChainB), -60, 0.7, 0.7)));   //int chainbarPID(float current, float target, float wgkP, float agkP){
-     //cbButtonState[1] = 1; //up
-     //cbButtonState[1] = -1; //down
+   if((current > positionVertical && (joystickGetDigital(2, 5, JOY_DOWN) || target > current)) || (current < positionVertical && joystickGetDigital(2, 5, JOY_UP))){
+      
    }
    else {
-     speed=0;
+     
    }
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   if(joystickGetDigital(2, 5, JOY_UP)){
+     target = current;
+     speed = 75;
+   }
+   else if(joystickGetDigital(2, 5, JOY_DOWN)){
+     target = current;
+     speed = -75;
+   } 
+   else if(joystickGetDigital(2, 8, JOY_LEFT)){                                           
+     speed = -min(60, max(-60, PID(current, -60, 1, 0.8, 0, 0)));    //holds chainbar right above mobile goal lifter
+     //target = current;
+   }  
+   else if(joystickGetDigital(2, 8, JOY_RIGHT)){
+     speed = -min(60, max(-60, PID(current, -100, 1, 0.8, 0, 0)));  //holds chainbar to driver load level
+   }
+   else {
+    speed=0;
+    //chainbarPID(current, cbTarget, 0.7, 0.7);
+   } 
    chainBar(speed);
+   //printf("Chainbar encoder, speed, target: %d\n, %d\n, %d\n", encoderGet(encoderChainB), smartMotorGet(MOTORS_CHAINB), target);
  }
 
 void opcontrolDebug(){

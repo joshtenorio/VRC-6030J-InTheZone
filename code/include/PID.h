@@ -1,10 +1,10 @@
 #pragma once
 
-                    // ID, kP, kI, kD
-#define PID_DRIVETRAIN  0, 0.2, 0, 0
-#define PID_LINEARGEAR  2, 0.5, 0, 0
-
-#define PID_CHAINBAR 0.4, 0.7 
+                                  // ID,  kP,  kI,  kD
+#define PID_DRIVETRAIN                0, 0.1,   0,   0
+#define PID_LINEARGEAR                1, 0.5,   0,   0
+#define PID_CHAINBAR_WITH_GRAVITY     2, 0.7,   0,   0
+#define PID_CHAINBAR_AGAINST_GRAVITY  2,   1,   0,   0
 
 
 /**
@@ -18,14 +18,3 @@
  * @return The motor speed at which to run the mechanism
  */
 int PID(float current, float target, int mechanismIdentifier, float kP, float kI, float kD);
-
-/**
- * Uses a specific P controller to calculate motor speed for chainbar to
- * achieve/maintain a target chainbar encoder reading
- * @param current The current reading from the chainbar encoder
- * @param target The desired reading from the chainbar encoder
- * @param wgkP The constant for the P term when chainbar is going down
- * @param agkP The constant for the P term when chainbar is going up
- * @return The motor speed at which to run the chainbar
- */
-int chainbarPID(int current, int target, float wgkP, float agkP);

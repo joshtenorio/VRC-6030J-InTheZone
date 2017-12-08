@@ -42,9 +42,9 @@ void operatorControl(){
     //opcontrolDebug();
  
     //opcontrolChainBarAndConeG();
-    printf("Chainbar value, chainbar speed: %d\n, %d\n", encoderGet(encoderChainB), smartMotorGet(MOTORS_CHAINB));
+    //printf("Chainbar value, chainbar speed: %d\n, %d\n", encoderGet(encoderChainB), smartMotorGet(MOTORS_CHAINB));
     //printf("driveright value: %d\n", encoderGet(rightDriveShaft));
-    //printf("driveleft value: %d\n", encoderGet(leftDriveShaft));
+    printf("driveleft value: %d\n", encoderGet(leftDriveShaft));
     //printf("conegrabber i am better than michelle value: %d\n", encoderGet(shaftConeG));
     //printf("linear gear, chainbar: %d\n, %d\n", encoderGet(shaftLinearGear), encoderGet(encoderChainB));
  

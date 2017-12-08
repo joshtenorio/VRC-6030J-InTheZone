@@ -4,17 +4,17 @@ void autoTankDrive(int leftTarget, int rightTarget){
 
   int rightCurrent = encoderGet(rightDriveShaft);
   int leftCurrent = encoderGet(leftDriveShaft);            
-  
+    
   int leftSpeed = PID(leftCurrent, leftTarget, 0, 0.2, 0, 0);
   int rightSpeed = PID(rightCurrent, rightTarget, 0, 0.2, 0, 0);
-  tankDrive(leftSpeed, -rightSpeed);
+  tankDrive(leftSpeed, rightSpeed);
 }
 
 void autoChainBar(int target){ 
 
   int current = encoderGet(encoderChainB);
   
-  int speed = chainbarPID(current, target, 0.4, 0.7);
+  int speed = PID(current, target, 2, 0.7, 0, 0);
   chainBar(speed);
 }
 
@@ -30,15 +30,21 @@ void autoPloopTest(){
   encoderReset(rightDriveShaft);
   autoTankDrive(1800, 1800);
 }
+
+
+
+
 void autoPloopTest2(){
   encoderReset(leftDriveShaft);
   encoderReset(rightDriveShaft);
-  while(leftDriveShaft < 1800){
+  while(encoderGet(leftDriveShaft) < 1800){
     autoTankDrive(1800, 1800);
+    delay(5);
   }
   delay(5);
-  while(leftDriveShaft > 1799){
-    autoTankDrive(0, 0);
+  while(encoderGet(leftDriveShaft) > 1799){
+    tankDrive(0, 0);
+    delay(5);
   }
 }
 /*
