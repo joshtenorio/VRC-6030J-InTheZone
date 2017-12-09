@@ -17,8 +17,8 @@ Encoder shaftLinearGear;
 void autoTankDrive(int leftTarget, int rightTarget);
 void autoChainBar(int target);
 void autoLinearGear(int target);
+void autoTimeConeG(int speed, int time);
+void autoTimeMobileGoal(int speed, int time);
+
 void autoPloopTest();
 void autoPloopTest2();
-void autoTimeConeG(int speed, int time);
-
-void autoStationaryGoal(); 

@@ -1,0 +1,7 @@
+changes made today:
+-writing pseudo code for autonomous driver load station, need target values
+112 cm to mobile goal
+
+tests done today:
+-mobile goal time delayed
+  1400 ms is amount of time it takes for it to bring it fully out

@@ -4,7 +4,7 @@
 #define PID_DRIVETRAIN                0, 0.1,   0,   0
 #define PID_LINEARGEAR                1, 0.5,   0,   0
 #define PID_CHAINBAR_WITH_GRAVITY     2, 0.7,   0,   0
-#define PID_CHAINBAR_AGAINST_GRAVITY  2,   1,   0,   0
+
 
 
 /**
@@ -17,4 +17,5 @@
  * @param kD The constant for the D term
  * @return The motor speed at which to run the mechanism
  */
+
 int PID(float current, float target, int mechanismIdentifier, float kP, float kI, float kD);

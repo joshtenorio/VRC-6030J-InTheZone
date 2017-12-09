@@ -8,6 +8,7 @@ void autoTankDrive(int leftTarget, int rightTarget){
   int leftSpeed = PID(leftCurrent, leftTarget, 0, 0.2, 0, 0);
   int rightSpeed = PID(rightCurrent, rightTarget, 0, 0.2, 0, 0);
   tankDrive(leftSpeed, rightSpeed);
+  printf("going: %d\n", encoderGet(leftDriveShaft));
 }
 
 void autoChainBar(int target){ 
@@ -25,48 +26,70 @@ void autoLinearGear(int target){
   linearGear(speed);
 }
 
-void autoPloopTest(){
+void autoPloopTest(){   //backup auton
   encoderReset(leftDriveShaft);
   encoderReset(rightDriveShaft);
-  autoTankDrive(1800, 1800);
+  autoTankDrive(1400, 1400);
+  delay(4);
+  while(smartMotorGet(MOTOR_DRIVE_LF) > 20) {
+    autoTankDrive(1400, 1400); //go forward
+    delay(5);
+    printf("goinga: %d\n", smartMotorGet(MOTOR_DRIVE_LF));
+  }  
+   printf("pick up cone: %d\n", encoderGet(MOTOR_DRIVE_LF));
+  tankDrive(0, 0);
 }
 
 
-
-
-void autoPloopTest2(){
-  encoderReset(leftDriveShaft);
-  encoderReset(rightDriveShaft);
-  while(encoderGet(leftDriveShaft) < 1800){
-    autoTankDrive(1800, 1800);
-    delay(5);
-  }
-  delay(5);
-  while(encoderGet(leftDriveShaft) > 1799){
-    tankDrive(0, 0);
-    delay(5);
-  }
-}
-/*
-void autoStationaryGoal(){
-  while(encoderChainB < [target value of chainbar]){
-    autoChainBar( ); //chainbar goes to other side
-  }
-  while(leftDriveShaft < [target value] && rightDriveShaft < [target value]) {
-    autoTankDrive( , ); //go forward
-  }
-  while(shaftLinearGear < [target value]){ //need to test this, could be > instead of <
-    autoLinearGear( ); //linear gear up
-  }
-  autoChainBar( ); //chainbar moves over to stack cone on stationary
-  autoTimeConeG(90, ); //coneg stacks cone, need time
+void autoPloopTest2(){  //primary auton
+  autoChainBar(-180);
+  delay(750);
+  autoChainBar(-60);
   
+  mobileGoal(75);
+  delay(1250);
+  mobileGoal(0);
+  
+  encoderReset(leftDriveShaft);
+  encoderReset(rightDriveShaft);
+  autoTankDrive(1400, 1400);
+  delay(4);
+  while(smartMotorGet(MOTOR_DRIVE_LF) > 20) {
+    autoTankDrive(1400, 1400); //go forward
+    delay(5);
+    printf("goinga: %d\n", smartMotorGet(MOTOR_DRIVE_LF));
+  }  
+   printf("pick up cone: %d\n", encoderGet(MOTOR_DRIVE_LF));
+  tankDrive(0, 0);
+  delay(4);
+  
+  mobileGoal(-100);
+  delay(1350);
+  mobileGoal(0);
+  
+  chainBar(0);
+  
+  encoderReset(leftDriveShaft);
+  encoderReset(rightDriveShaft);
+  autoTankDrive(-500, -500);
+  delay(4);
+  while(smartMotorGet(MOTOR_DRIVE_LF) < -20) {
+    autoTankDrive(-500, -500); //go forward
+    delay(5);
+    printf("goinga: %d\n", smartMotorGet(MOTOR_DRIVE_LF));
+  }  
+   printf("pick up cone: %d\n", encoderGet(MOTOR_DRIVE_LF));
+  tankDrive(0, 0);
 }
-*/
-
 
 void autoTimeConeG(int speed, int time){
   coneGrabber(speed);
   delay(time);
   coneGrabber(0);
+}
+
+void autoTimeMobileGoal(int speed, int time){
+  mobileGoal(speed);
+  delay(time);
+  mobileGoal(speed);
 }

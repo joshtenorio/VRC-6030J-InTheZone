@@ -69,43 +69,12 @@ void opcontrolChainBar(){
    }
    
    
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
    if(joystickGetDigital(2, 5, JOY_UP)){
-     target = current;
+     //target = current;
      speed = 75;
    }
    else if(joystickGetDigital(2, 5, JOY_DOWN)){
-     target = current;
+     //target = current;
      speed = -75;
    } 
    else if(joystickGetDigital(2, 8, JOY_LEFT)){                                           
@@ -113,14 +82,13 @@ void opcontrolChainBar(){
      //target = current;
    }  
    else if(joystickGetDigital(2, 8, JOY_RIGHT)){
-     speed = -min(60, max(-60, PID(current, -100, 1, 0.8, 0, 0)));  //holds chainbar to driver load level
+     speed = -min(60, max(-60, PID(current, -180, 1, 0.8, 0, 0)));  //holds chainbar to driver load level
    }
    else {
     speed=0;
     //chainbarPID(current, cbTarget, 0.7, 0.7);
    } 
    chainBar(speed);
-   //printf("Chainbar encoder, speed, target: %d\n, %d\n, %d\n", encoderGet(encoderChainB), smartMotorGet(MOTORS_CHAINB), target);
  }
 
 void opcontrolDebug(){
