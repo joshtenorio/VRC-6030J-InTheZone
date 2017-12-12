@@ -3,7 +3,7 @@
                                   // ID,  kP,  kI,  kD
 #define PID_DRIVETRAIN                0, 0.1,   0,   0
 #define PID_LINEARGEAR                1, 0.5,   0,   0
-#define PID_CHAINBAR_WITH_GRAVITY     2, 0.7,   0,   0
+//#define PID_CHAINBAR_WITH_GRAVITY     2, 0.7,   0,   0
 
 
 
