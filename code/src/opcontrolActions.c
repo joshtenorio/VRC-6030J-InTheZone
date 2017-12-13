@@ -25,7 +25,7 @@ void opcontrolMobileGoal(){
   mobileGoal(speed);
 }
 
-void opcontrolLinearGear(){
+void opcontrolLinearGear(){   //will be reconfigured for cascade lift
   int speed;
   if(joystickGetDigital(2, 6, JOY_UP)){
     speed = 127;
@@ -98,6 +98,20 @@ void opcontrolDebug(){
   encoderReset(leftDriveShaft);
   encoderReset(rightDriveShaft);
   encoderReset(shaftLinearGear);
+  }
+}
+
+static float cascadeLiftStack[10] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}; //these two arrays need to be updated with real target values
+static float chainBarStack[10] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}; //each float in the array corresponds to a number for 
+int coneCount = 0;
+void opcontrolStack(){
+  int chainbarSpeed;
+  int cascadeliftSpeed;
+  if(joystickGetDigital(1, 7, JOY_UP)){
+    coneCount = 0;
+  }
+  if(joystickGetDigital(1, 7, JOY_LEFT)){
+    
   }
 }
 

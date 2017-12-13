@@ -6,5 +6,6 @@ void opcontrolLinearGear();
 void opcontrolConeGrabber();
 void opcontrolChainBar();
 void opcontrolDebug();
+void opcontrolStack();
 
 int cbTarget; 

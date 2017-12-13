@@ -1,0 +1,8 @@
+changes made today:
+-hardware team is replacing linear gear with cascade lift
+-prototyping autoStack for driver control
+-fixing autonomous when chainbar flips over too much but can't really test it because chainbar isn't wired
+-well autonomous needs to turn more
+
+
+tests done today:
