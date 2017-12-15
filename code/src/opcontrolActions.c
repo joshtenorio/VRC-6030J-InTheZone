@@ -7,6 +7,15 @@ void opcontrolTankDrive(){
 
 void opcontrolMobileGoal(){
   int speed;
+/*
+  if(abs(encoderGet(encoderChainB)>20){   //test and recheck for values
+    (//maybe speed = 20)
+    target = 50; //check values
+  
+  }
+  else{ 
+  */
+
     if(joystickGetDigital(1, 5, JOY_UP)){
       speed = 75;
     }
@@ -54,7 +63,6 @@ void opcontrolConeGrabber(){
 }
 
 
-
 void opcontrolChainBar(){
    const int positionVertical = 0; //needs to be changed/adjusted
    int speed;
@@ -63,11 +71,15 @@ void opcontrolChainBar(){
    
    if((current > positionVertical && (joystickGetDigital(2, 5, JOY_DOWN) || target > current)) || (current < positionVertical && joystickGetDigital(2, 5, JOY_UP))){
       
+
    }
    else {
      
    }
    
+
+  
+
 
    
    if(joystickGetDigital(2, 5, JOY_UP)){
@@ -101,18 +113,32 @@ void opcontrolDebug(){
   }
 }
 
-static float cascadeLiftStack[10] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}; //these two arrays need to be updated with real target values
-static float chainBarStack[10] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}; //each float in the array corresponds to a number for 
-int coneCount = 0;
+static float linearGearStack[10] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}; //these two arrays need to be updated with real target values
+static float chainBarStack[10] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}; //each float in the array corresponds to the number of cones in stack
+int coneCount = 0;                                                //each float in the array is a target value for each mechanism
 void opcontrolStack(){
-  int chainbarSpeed;
-  int cascadeliftSpeed;
-  if(joystickGetDigital(1, 7, JOY_UP)){
-    coneCount = 0;
-  }
-  if(joystickGetDigital(1, 7, JOY_LEFT)){
-    
-  }
+	int x = 0;
+	int chainbarSpeed;
+	int linearGearSpeed;
+	if(joystickGetDigital(1, 7, JOY_UP)){ //reset cone stack
+		coneCount = 0;
+	}
+	else if(joystickGetDigital(1, 7, JOY_LEFT)){ //hold this to auto stack
+		chainbarSpeed = -min(60, max(-60, PID(current, -180, 1, 0.8, 0, 0)));
+		while (smartMotorGet(MOTORS_CHAINB) > 20) {
+			chainbarSpeed = -min(60, max(-60, PID(current, -180, 1, 0.8, 0, 0)));
+		}
+		//coneGrabber(); this needs speed to pick up cone
+		coneCount += 1;
+	}
+	else if (joystickGetDigital(1, 7, JOY_DOWN)) { //remove a cone from stack (need to find a way to only happen once for one button press
+		for (x = 0; x < 1;  x += 1) {
+			coneCount -= 1;
+		}
+	}
+	linearGear(linearGearSpeed);
+	chainBar(chainbarSpeed);
 }
+
 
 

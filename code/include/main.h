@@ -32,6 +32,7 @@
 #include "opcontrolActions.h"
 #include "autoLibrary.h"
 #include "PID.h"
+#include "autonTasks.h"
 
 // Allow usage of this file in C++ programs
 #ifdef __cplusplus

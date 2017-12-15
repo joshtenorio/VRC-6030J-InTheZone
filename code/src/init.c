@@ -20,6 +20,7 @@
  * states (digitalWrite()) of limit switches, push buttons, and solenoids. It can also safely
  * configure a UART port (usartOpen()) but cannot set up an LCD (lcdInit()).
  */
+ 
 void initializeIO() {
 }
 
@@ -43,6 +44,4 @@ void initialize() {
    rightDriveShaft = encoderInit(SHAFTDRIVE_RB, false);
    encoderChainB = encoderInit(ENCODER_CHAINB, false);
    shaftLinearGear = encoderInit(ENCODER_LINEARG, false);
-   
-
 }

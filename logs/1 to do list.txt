@@ -7,7 +7,7 @@
 
 
 
--need documentation in library.h
+-need documentation in every header files
 
 
 

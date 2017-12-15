@@ -1,0 +1,8 @@
+changes made today:
+-Barin fixed my self-induced shame for bit bucket so please press initialize
+-started opcontrolStack (an auto stack)
+  will be on vexnet joystick
+-moved autonomous procedures to autonTasks.c and autonTasks.h
+
+
+tests done today:

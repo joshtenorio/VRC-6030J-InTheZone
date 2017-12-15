@@ -29,6 +29,9 @@
  *
  * This task should never exit; it should end with some kind of infinite loop, even if empty.
  */
+
+ int target;
+
  
 void operatorControl(){
   
@@ -38,10 +41,16 @@ void operatorControl(){
     opcontrolLinearGear();
     opcontrolChainBar();
     opcontrolConeGrabber();
+
     //opcontrolStack();
     
     
     opcontrolDebug();
+
+    //opcontrolDebug();
+ 
+
+
     printf("Chainbar value, chainbar speed: %d\n, %d\n", encoderGet(encoderChainB), smartMotorGet(MOTORS_CHAINB));
     //printf("driveright value: %d\n", encoderGet(rightDriveShaft));
     //printf("driveleft value: %d\n", encoderGet(leftDriveShaft));
