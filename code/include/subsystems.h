@@ -28,7 +28,11 @@ Encoder rightDriveShaft;
 Encoder encoderChainB;
 Encoder shaftLinearGear;
 
-
+/**
+ * Controls the drivetrain motors by mapping joystick analog values to motor speeds
+ * @param leftSpeed The speed for the left set of drivetrain motors, mapped from the left analog stick on the vexnet joystick
+ * @param rightSpeed The speed for the right set of drivetrain motors, mapped from the right analog stick on the vexnet joystick
+ */
 void tankDrive(int leftSpeed, int rightSpeed);
 void mobileGoal(int speed);
 void linearGear(int speed);

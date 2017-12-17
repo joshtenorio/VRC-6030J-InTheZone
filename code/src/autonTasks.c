@@ -3,7 +3,7 @@
 void autoPloopTest2() {  //primary auton
 	encoderReset(encoderChainB);
 	delay(50);
-	autoChainBar(-60);
+	//autoChainBar(-60);
 	delay(1000);
 
 	mobileGoal(75);
@@ -29,7 +29,7 @@ void autoPloopTest2() {  //primary auton
 	delay(1350);
 	mobileGoal(0);  //goes back in 
 
-	chainBar(0); //stops chainbar
+	//chainBar(0); //stops chainbar
 	delay(750);
 
 	encoderReset(leftDriveShaft);
@@ -50,7 +50,7 @@ void autoPloopTest2() {  //primary auton
 	autoTankDrive(-400, 400); //slightly turn
 	delay(50);
 
-	while (smartMotorGet(MOTOR_DRIVE_LF) < -25) {
+	while (smartMotorGet(MOTOR_DRIVE_LF) < -30) {
 		autoTankDrive(-400, 400); //go turn
 		delay(5);
 	}
@@ -61,32 +61,18 @@ void autoPloopTest2() {  //primary auton
 	delay(50);
 
 	while (smartMotorGet(MOTOR_DRIVE_LF) > 25) {
-		autoTankDrive(720, 720); //go back to the scoring zone
+		autoTankDrive(720, 720); 
 		delay(5);
 
 	}
 
 
-	while (shaftLinearGear < 20) { //need to test this, could be > instead of <
-		autoLinearGear(20); //linear gear up
-	}
-
 	delay(20);
 
-	while (leftDriveShaft < 1800 && rightDriveShaft < 1800) {
-		autoTankDrive(1800, 1800); //go forward
-	}
-	printf("goinga: %d\n", smartMotorGet(MOTOR_DRIVE_LF));
 
-
-	encoderReset(leftDriveShaft);
-	encoderReset(rightDriveShaft);
-	autoTankDrive(-800, 400); //turn more
-
-	delay(50);
 
 	while (smartMotorGet(MOTOR_DRIVE_LF) < -25) {
-		autoTankDrive(-800, 400); //go turn
+		autoTankDrive(-600, 400); //go turn
 		delay(5);
 	}
 
@@ -122,7 +108,7 @@ void autoPloopTest2() {  //primary auton
 		delay(5);
 	}
 
-	autoChainBar(-60); //chainbar goes up
+	//autoChainBar(-60); //chainbar goes up
 	delay(800);
 
 	mobileGoal(100); //mobile goal goes out
@@ -150,7 +136,7 @@ void autoPloopTest2() {  //primary auton
 	mobileGoal(-75);
 	delay(1000);
 	mobileGoal(0);
-	chainBar(0);  //mobile goal goes back in
+	//chainBar(0);  //mobile goal goes back in
 
 	encoderReset(leftDriveShaft);
 	encoderReset(rightDriveShaft);
