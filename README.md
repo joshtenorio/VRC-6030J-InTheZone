@@ -1,7 +1,7 @@
 # JeStErS-ITZ-code
 for VRC ITZ code, coded for PROS
 
-This is pretty much a repository so that me and my partner can share our work more easily with each other
+This is pretty much a repository so that i can keep track of changes
 
 code can be found in code folder
 
