@@ -1,0 +1,10 @@
+changes made today:
+-tidying up autostack
+-cone remove doesn't work as intended
+-pros terminal being shameful so couldnt see encoder values
+
+
+
+tests done today:
+-shameful hardware broke a motor yesterday, they also redoing wires
+-tried testing cone remove, doesn't work

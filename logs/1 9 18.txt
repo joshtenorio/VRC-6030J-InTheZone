@@ -1,0 +1,9 @@
+changes made today:
+  -made lots of progress on auto stack
+  -discussed changes needed on autonomous
+    -make faster, maybe instead of doing that weird turn maneuver just go backwards after picking up goal
+    -after 20 pt autonomous is done, design one for left side so we're not hogging one side
+    -use a VEX LCD for auton chooser if time is available
+    
+tests done today:
+  -shameful hardware

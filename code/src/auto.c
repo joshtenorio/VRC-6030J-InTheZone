@@ -30,22 +30,11 @@
 void autonomous(){
 
   //autoPloopTest();
-  autoPloopTest2();
+  auto20PtRedRight();
   
   //mobileGoal(-100);
   //delay(1250);
   //mobileGoal(0);
   
   
-
-
-  mobileGoal(75);
-  delay (1400);
-  mobileGoal(0);
-  wait(800);
-  mobileGoal(-75);
-  delay (1300);
-  mobileGoal(0);
- 
-
 }

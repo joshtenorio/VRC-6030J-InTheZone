@@ -3,9 +3,6 @@
 
 
 
-- get someone to check PID.c
-
-
 
 -need documentation in every header files
 
@@ -13,9 +10,9 @@
 
 -when relevant sensors are attached make PIDs for:
   mobile goal
-  autostacking (remove cone and make chainbar/linear gear go up) and for driver loads
-  auto reset <>
- 
+
+ -make I term for linear gear and chainbar so autostack works better
+ -rework 20 point autonomous so it go faster
  
 
 -roast michelle (execute immediately)
