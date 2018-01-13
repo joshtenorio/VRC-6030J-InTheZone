@@ -92,60 +92,82 @@ void opcontrolChainBar(){
    chainBar(speed);
  }
 
-void opcontrolDebug(){
-  if(joystickGetDigital(2, 7, JOY_UP)){
-  encoderReset(encoderChainB);
-  encoderReset(leftDriveShaft);
-  encoderReset(rightDriveShaft);
-  encoderReset(shaftLinearGear);
-  }
-}
-
-static float linearGearStack[10] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}; //these two arrays need to be updated with real target values
-static float chainBarStack[10] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}; //each float in the array corresponds to the number of cones in stack
-int coneCount = 0;                                                //each float in the array is a target value for each mechanism
+static float linearGearStack[10] = {0, 0, 0, 150, 0, 0, 0, 0, 0, 0}; //these two arrays need to be updated with real target values
+static float chainBarStack[10] = {0, -25, -36, -20, 0, 0, 0, 0, 0, 0}; //each float in the array corresponds to the number of cones in stack
+int coneCount = 0;  //each float in the array is a target value for each mechanism
+int buttonState = 0; //refers to down button on vexnet joystick, group 7
+int prevButtonState = 0; //holds last state of down button vexnet joystick, group 7
 void opcontrolStack(){
 	int chainbarSpeed;
 	int linearGearSpeed;
 	int coneGrabberSpeed;
 	int cbCurrent = encoderGet(encoderChainB);
 	int lgCurrent = encoderGet(shaftLinearGear);
-	int buttonState = 0;
 	if(joystickGetDigital(1, 7, JOY_UP)){ //reset cone stack
 		coneCount = 0;
 	}
 	else if(joystickGetDigital(1, 7, JOY_LEFT)){ //hold this to auto stack
+
 		chainbarSpeed = -min(60, max(-60, PID(cbCurrent, -180, 1, 0.8, 0, 0)));
 		while (abs(smartMotorGet(MOTORS_CHAINB)) > 20) { //bring chainbar to driver load station
 			chainbarSpeed = -min(60, max(-60, PID(cbCurrent, -180, 1, 0.8, 0, 0)));
 			delay(1);
 		}
+
+		linearGearSpeed = -min(127, max(-127, PID(lgCurrent, linearGearStack[coneCount], 2, 0.8, 0, 0)));
+		while ((abs(smartMotorGet(MOTORS_LINEAR)) > 20)) {
+			linearGearSpeed = -min(127, max(-127, PID(lgCurrent, linearGearStack[coneCount], 2, 0.8, 0, 0))); //bring linear gear to driver station level
+			delay(1);
+		}
+	
 		coneGrabberSpeed = 0;
-		delay(50);
+		delay(20);
 		coneGrabberSpeed = -90; //this needs speed to pick up cone
 		delay(200);
 		coneGrabberSpeed = 0;
+
 		linearGearSpeed = -min(127, max(-127, PID(lgCurrent, linearGearStack[coneCount], 2, 0.8, 0, 0)));
 		while ((abs(smartMotorGet(MOTORS_LINEAR)) > 20)) {
-			linearGearSpeed = -min(127, max(-127, PID(lgCurrent, linearGearStack[coneCount], 2, 0.8, 0, 0))); //bring linear gear to stack
+			linearGearSpeed = -min(127, max(-127, PID(lgCurrent, linearGearStack[coneCount], 2, 0.7, 0, 0))); //bring linear gear to stack
 			delay(1);
 		}
-		coneGrabberSpeed = 0; //this needs speed to drop cone
+
+		chainbarSpeed = -min(60, max(-60, PID(cbCurrent, chainBarStack[coneCount], 1, 0.8, 0, 0)));
+		while (abs(smartMotorGet(MOTORS_CHAINB)) > 20) { //bring chainbar to mobile goal stack
+			chainbarSpeed = -min(60, max(-60, PID(cbCurrent, chainBarStack[coneCount], 1, 0.8, 0, 0)));
+			delay(1);
+		}
+		coneGrabberSpeed = 90; //drop cone
 		coneCount += 1;
 	}
-	else if (joystickGetDigital(1, 7, JOY_DOWN)) { //remove a cone from stack (need to find a way to only happen once for one button press)
-		buttonState += 1;
-		print("button press");
-	}
-	if (buttonState == 1) {
-		coneCount -= 1;
-		buttonState = 0;
-		print("remove cone");
-	}
+
 	linearGear(linearGearSpeed);
 	chainBar(chainbarSpeed);
 	coneGrabber(coneGrabberSpeed);
 }
 
+void opcontrolDebug() {
 
+	if (joystickGetDigital(2, 7, JOY_UP)) {
+		encoderReset(encoderChainB);
+		encoderReset(leftDriveShaft);
+		encoderReset(rightDriveShaft);
+		encoderReset(shaftLinearGear);
+	}
+	else if (joystickGetDigital(1, 7, JOY_DOWN)) { //remove a cone from stack (need to find a way to only happen once for one button press)
+		chainBar(0);
+		linearGear(0);
+		coneGrabber(0);
+		print("button press");
+	}
 
+	if (buttonState != prevButtonState) { //if button state doesn't equal previous button state
+		if (buttonState == 1) { //if button state has been pressed
+			coneCount -= 1;
+			print("cone removed");
+			buttonState = 0;
+			prevButtonState = buttonState; //setting previous button state to current button state
+		}
+	}
+
+}

@@ -1,7 +1,10 @@
 -make letter to future jesters
 
 
-
+-copy a blank PROS code folder with library and motor .c and .h files unto your three flash drives
+  and make a release of it on github
+  and include it in every release (click on "include files" or something while making release)
+  and maybe include PID.c and .h files as an option
 
 
 -need documentation in every header files

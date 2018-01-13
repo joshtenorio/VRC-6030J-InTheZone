@@ -47,15 +47,15 @@ void operatorControl(){
     
     opcontrolDebug();
 
-    //opcontrolDebug();
  
 
 
-    printf("Chainbar value, chainbar speed: %d\n, %d\n", encoderGet(encoderChainB), smartMotorGet(MOTORS_CHAINB));
+    //printf("Chainbar value, chainbar speed: %d\n, %d\n", encoderGet(encoderChainB), smartMotorGet(MOTORS_CHAINB));
     //printf("driveright value: %d\n", encoderGet(rightDriveShaft));
     //printf("driveleft value: %d\n", encoderGet(leftDriveShaft));
-    //printf("linear gear, chainbar: %d\n, %d\n", encoderGet(shaftLinearGear), encoderGet(encoderChainB));
+    printf("linear gear, chainbar: %d\n, %d\n", encoderGet(shaftLinearGear), encoderGet(encoderChainB));
 	//printf("lineargear value, linear gear speed: %d\n, %d\n", encoderGet(shaftLinearGear), smartMotorGet(MOTORS_LINEAR));
+	//printf("mobile goal value: %d\n", analogReadCalibrated(POTENTIOMETER_MOBGOAL));
  
     
     

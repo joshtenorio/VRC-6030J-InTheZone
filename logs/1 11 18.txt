@@ -1,0 +1,12 @@
+changes made today:
+-found an error in autostack
+  fixed said error
+-made a thing in autostack where you press a button and one cone is removed from coneCount variable
+  needs testing
+  made a thing to test cone remove without activating autostack-relevant motors
+-made a printf statement in opcontrol.c to read potentiometer for mob goal in analog port 1
+-made some documentation for a lot of things in opcontrolActions.h
+
+
+
+tests done today:

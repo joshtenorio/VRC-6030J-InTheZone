@@ -22,7 +22,7 @@ void auto20PtRedRight() {  //primary auton
 		
 	}
 
-	
+
 	tankDrive(0, 0);  //stop drivetrain
 	delay(4);
 
@@ -41,7 +41,6 @@ void auto20PtRedRight() {  //primary auton
 	while (smartMotorGet(MOTOR_DRIVE_LF) < -20) {
 		autoTankDrive(-500, -500); //go backwards
 		delay(5);
-		tankDrive(0, 0);
 	}
 
 	encoderReset(leftDriveShaft);
