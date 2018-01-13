@@ -3,7 +3,7 @@ for VRC ITZ code, coded for PROS
 
 This is pretty much a repository so that i can keep track of changes
 
-code can be found in code folder
+code can be found in code folder, a blank template of the code can be found in blank folder
 
 Changes made to the code are documented in the logs folder
 
