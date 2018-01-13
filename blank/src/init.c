@@ -20,6 +20,7 @@
  * states (digitalWrite()) of limit switches, push buttons, and solenoids. It can also safely
  * configure a UART port (usartOpen()) but cannot set up an LCD (lcdInit()).
  */
+ 
 void initializeIO() {
 }
 
@@ -37,4 +38,5 @@ void initializeIO() {
  * can be implemented in this task if desired.
  */
 void initialize() {
+	taskCreate(slewControlTask, TASK_DEFAULT_STACK_SIZE, NULL, TASK_PRIORITY_DEFAULT - 1);
 }
