@@ -1,6 +1,0 @@
-to do 12/4 to 12/9
-finish PID loop for chainbar by tuesday
-finish autonomous by thursday
-drivers practice friday
-
-^ barin said
