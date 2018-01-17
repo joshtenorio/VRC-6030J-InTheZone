@@ -69,31 +69,27 @@ void opcontrolChainBar(){
 
 
    if(joystickGetDigital(2, 5, JOY_UP)){
-     //target = current;
      speed = 75; 
 	 print("button press");
    }
    else if(joystickGetDigital(2, 5, JOY_DOWN)){
-     //target = current;
      speed = -75;
 	 print("button press");
    } 
    else if(joystickGetDigital(2, 8, JOY_LEFT)){                                           
      speed = -min(60, max(-60, PID(current, -60, 1, 0.8, 0, 0)));    //holds chainbar right above mobile goal lifter
-     //target = current;
    }  
    else if(joystickGetDigital(2, 8, JOY_RIGHT)){
      speed = -min(60, max(-60, PID(current, -180, 1, 0.8, 0, 0)));  //holds chainbar to driver load level
    }
    else {
     speed=0;
-    //chainbarPID(current, cbTarget, 0.7, 0.7);
    } 
    chainBar(speed);
  }
 
-static float linearGearStack[10] = {0, 0, 0, 150, 0, 0, 0, 0, 0, 0}; //these two arrays need to be updated with real target values
-static float chainBarStack[10] = {0, -25, -36, -20, 0, 0, 0, 0, 0, 0}; //each float in the array corresponds to the number of cones in stack
+static float linearGearStack[4] = {0, 0, 0, 150}; //these two arrays need to be updated with real target values
+static float chainBarStack[4] = {0, -25, -36, -20}; //each float in the array corresponds to the number of cones in stack
 int coneCount = 0;  //each float in the array is a target value for each mechanism
 int buttonState = 0; //refers to down button on vexnet joystick, group 7
 int prevButtonState = 0; //holds last state of down button vexnet joystick, group 7

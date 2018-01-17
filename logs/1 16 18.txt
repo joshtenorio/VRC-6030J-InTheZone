@@ -1,0 +1,6 @@
+changes made today:
+-reduced size of coneCount array from 10 to 4
+-tested I terms for chainbar, failed but testing again i guess ok
+-
+
+tests done today:

@@ -4,7 +4,7 @@ void auto20PtRedRight() {  //primary auton
 
 	encoderReset(encoderChainB); //bring chainbar up
 	delay(20);
-	//autoChainBar(-60);
+	autoChainBar(-60);
 	delay(1000);
 
 	mobileGoal(75);
@@ -30,16 +30,16 @@ void auto20PtRedRight() {  //primary auton
 	delay(1350);
 	mobileGoal(0);  //mobile goal goes back in 
 
-	//chainBar(0); //stops chainbar PID
+	chainBar(0); //stops chainbar PID
 	delay(750);
 
 	encoderReset(leftDriveShaft);
 	encoderReset(rightDriveShaft);
-	autoTankDrive(-500, -500);
+	autoTankDrive(-700, -700);
 	delay(4);
 
 	while (smartMotorGet(MOTOR_DRIVE_LF) < -20) {
-		autoTankDrive(-500, -500); //go backwards
+		autoTankDrive(-700, -700); //go backwards
 		delay(5);
 	}
 
