@@ -27,17 +27,28 @@ void opcontrolMobileGoal(){
 }
 
 void opcontrolLinearGear(){   //will be reconfigured for cascade lift
-  int speed;
-  if(joystickGetDigital(2, 6, JOY_UP)){
-    speed = 127;
-  }
-  else if(joystickGetDigital(2, 6, JOY_DOWN)){
-    speed = -127;
-  }
-  else {
-    speed = 0;
-  }
-  linearGear(speed);
+	int target = 0;
+	int current = encoderGet(shaftLinearGear);
+	int speed;
+	if(joystickGetDigital(2, 6, JOY_UP)){
+		speed = 127;
+		//target = encoderGet(ENCODER_LINEARG);
+	}
+	else if(joystickGetDigital(2, 6, JOY_DOWN)){
+		speed = -127;
+		//target = encoderGet(ENCODER_LINEARG);
+	}
+	else if (joystickGetAnalog(2, 2) < -80) {
+		target = encoderGet(shaftLinearGear);
+	}
+	else if (joystickGetAnalog(2, 3) < -80) {
+		speed = -min(120, max(-120, PID(current, target, 2, 0.8, 0, 0)));
+	}
+	else {
+		speed = 0;
+		//speed = -min(120, max(-120, PID(Current, target, 2, 0.8, 0, 0)));
+	}
+	linearGear(speed);
 }
 
 void opcontrolConeGrabber(){
@@ -99,10 +110,10 @@ void opcontrolStack(){
 	int coneGrabberSpeed;
 	int cbCurrent = encoderGet(encoderChainB);
 	int lgCurrent = encoderGet(shaftLinearGear);
-	if(joystickGetDigital(1, 7, JOY_UP)){ //reset cone stack
+	if(joystickGetDigital(2, 7, JOY_RIGHT)){ //reset cone stack
 		coneCount = 0;
 	}
-	else if(joystickGetDigital(1, 7, JOY_LEFT)){ //hold this to auto stack
+	else if(joystickGetDigital(2, 7, JOY_LEFT)){ //hold this to auto stack
 
 		chainbarSpeed = -min(60, max(-60, PID(cbCurrent, -180, 1, 0.8, 0, 0)));
 		while (abs(smartMotorGet(MOTORS_CHAINB)) > 20) { //bring chainbar to driver load station
@@ -110,9 +121,9 @@ void opcontrolStack(){
 			delay(1);
 		}
 
-		linearGearSpeed = -min(127, max(-127, PID(lgCurrent, linearGearStack[coneCount], 2, 0.8, 0, 0)));
+		linearGearSpeed = -min(120, max(-120, PID(lgCurrent, linearGearStack[coneCount], 2, 0.8, 0, 0)));
 		while ((abs(smartMotorGet(MOTORS_LINEAR)) > 20)) {
-			linearGearSpeed = -min(127, max(-127, PID(lgCurrent, linearGearStack[coneCount], 2, 0.8, 0, 0))); //bring linear gear to driver station level
+			linearGearSpeed = -min(120, max(-120, PID(lgCurrent, linearGearStack[coneCount], 2, 0.8, 0, 0))); //bring linear gear to driver station level
 			delay(1);
 		}
 	
@@ -149,21 +160,6 @@ void opcontrolDebug() {
 		encoderReset(leftDriveShaft);
 		encoderReset(rightDriveShaft);
 		encoderReset(shaftLinearGear);
-	}
-	else if (joystickGetDigital(1, 7, JOY_DOWN)) { //remove a cone from stack (need to find a way to only happen once for one button press)
-		chainBar(0);
-		linearGear(0);
-		coneGrabber(0);
-		print("button press");
-	}
-
-	if (buttonState != prevButtonState) { //if button state doesn't equal previous button state
-		if (buttonState == 1) { //if button state has been pressed
-			coneCount -= 1;
-			print("cone removed");
-			buttonState = 0;
-			prevButtonState = buttonState; //setting previous button state to current button state
-		}
 	}
 
 }
