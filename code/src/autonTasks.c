@@ -18,8 +18,7 @@ void auto20PtRedRight() {  //primary auton
 
 	while (smartMotorGet(MOTOR_DRIVE_LF) > 30) {
 		autoTankDrive(1600, 1600);            //go forward
-		delay(5);
-		
+		delay(5);	
 	}
 
 

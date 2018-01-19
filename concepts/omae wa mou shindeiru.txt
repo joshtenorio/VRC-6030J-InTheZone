@@ -1,0 +1,4 @@
+Jesters' Robot: omae wa mou shindeiru
+Jesters: nani
+*Every motor on robot PTC's at same time*
+  

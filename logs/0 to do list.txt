@@ -10,7 +10,7 @@
 
   
  -make I term for linear gear and chainbar so autostack works better
- -rework 20 point autonomous so it scores and goes faster
+ -rework 20 point autonomous so it scores and goes faster 
  
 
 -roast michelle (execute immediately)

@@ -1,0 +1,13 @@
+changes made today:
+-removed idea to remove cone count because it wouldnt be needed/necessary
+-played war and go fish with casey
+-hardware people added rail to linear gear other side
+  can now hold 7 cones
+  need PID for linear gear 
+-me and sofia went over autonomous changes 
+  refer to dafss.jpg in desktop
+-making a bandaid fix for linear gear PID (set target with analog joystick, activate PID with other one)
+
+tests done today:
+-linear gear is clunky
+  PID is working tho it seems
