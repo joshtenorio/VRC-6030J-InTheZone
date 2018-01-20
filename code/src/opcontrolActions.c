@@ -69,32 +69,38 @@ void opcontrolConeGrabber(){
 void opcontrolChainBar(){
    const int positionVertical = 0; //needs to be changed/adjusted
    int speed;
-   int target;
    int current = encoderGet(encoderChainB);
-   
+   static int cbTarget = 0; /*
    if((current > positionVertical && (joystickGetDigital(2, 5, JOY_DOWN) || target > current)) || (current < positionVertical && joystickGetDigital(2, 5, JOY_UP))){
    }
    else {     
-   }
+   } */
 
 
+  
 
    if(joystickGetDigital(2, 5, JOY_UP)){
      speed = 75; 
 	 print("button press");
+	 cbTarget = encoderGet(encoderChainB);
    }
    else if(joystickGetDigital(2, 5, JOY_DOWN)){
      speed = -75;
 	 print("button press");
+	 cbTarget = encoderGet(encoderChainB);
    } 
    else if(joystickGetDigital(2, 8, JOY_LEFT)){                                           
      speed = -min(60, max(-60, PID(current, -60, 1, 0.8, 0, 0)));    //holds chainbar right above mobile goal lifter
+	 cbTarget = encoderGet(encoderChainB);
    }  
    else if(joystickGetDigital(2, 8, JOY_RIGHT)){
      speed = -min(60, max(-60, PID(current, -180, 1, 0.8, 0, 0)));  //holds chainbar to driver load level
+	 cbTarget = encoderGet(encoderChainB);
    }
    else {
-    speed=0;
+    //speed=0;
+	speed = -min(60, max(-60, PID(current, cbTarget, 1, 0.8, 0, 0)));
+
    } 
    chainBar(speed);
  }

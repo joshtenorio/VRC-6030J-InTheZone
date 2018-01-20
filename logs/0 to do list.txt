@@ -3,7 +3,7 @@
 
 -need documentation in every header files
 
-
+-make thing in driver control basically mobile goal soft stop using potentiometer
 
 -when relevant sensors are attached make PIDs for:
   mobile goal

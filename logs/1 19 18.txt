@@ -1,0 +1,6 @@
+changes made today:
+-made chainbar PID to hold last position, doesnt really work
+-hardware team put potentiometer on mobile goal
+
+
+tests done today:

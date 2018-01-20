@@ -44,4 +44,5 @@ void initialize() {
    rightDriveShaft = encoderInit(SHAFTDRIVE_RB, false);
    encoderChainB = encoderInit(ENCODER_CHAINB, false);
    shaftLinearGear = encoderInit(ENCODER_LINEARG, false);
+
 }

@@ -21,7 +21,7 @@
 #define SHAFTDRIVE_RB          4,5
 #define ENCODER_CHAINB         6,7
 #define ENCODER_LINEARG        8,9
-#define POTENTIOMETER_MOBGOAL  1
+#define POTENTIOMETER_MOBGOAL  2
 //any shaft encoder cannot go in port 10
 //declaring encoders...
 Encoder leftDriveShaft;
