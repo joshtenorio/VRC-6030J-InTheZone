@@ -1,0 +1,10 @@
+changes made today:
+-working on chainbar PID
+  works, just working on optimization for it
+  optimization failed, but driver team said its ok-ish
+  should be copypasted into linear gear without too many problems
+-copypasted chainbar PID code into linear gear code with necessary changes
+
+
+tests done today:
+chainbar PID works
