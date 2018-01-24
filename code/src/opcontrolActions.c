@@ -26,34 +26,28 @@ void opcontrolMobileGoal(){
   mobileGoal(speed);
 }
 
-void opcontrolLinearGear(){   //will be reconfigured for cascade lift
+void opcontrolLinearGear(){  
 	static int target = 0;
 	int current = encoderGet(shaftLinearGear);
 	int speed;
 	static int prevPidStatus = 0;
 	static int pidStatus = 0;
 	if (prevPidStatus == 0 && pidStatus == 1) {
-		target = encoderGet(encoderChainB);
+		target = encoderGet(shaftLinearGear);
 		prevPidStatus = pidStatus;
 		print("target set");
 	}
 	if(joystickGetDigital(2, 6, JOY_UP)){
 		speed = 127;
-		target = encoderGet(ENCODER_LINEARG);
-	}
-	else if(joystickGetDigital(2, 6, JOY_DOWN)){
-		speed = -127;
-		target = encoderGet(ENCODER_LINEARG);
-	}
-	else if (joystickGetAnalog(2, 2) < -80) {
 		target = encoderGet(shaftLinearGear);
 	}
-	else if (joystickGetAnalog(2, 3) < -80) {
-		speed = -min(120, max(-120, PID(current, target, 2, 0.8, 0, 0)));
+	else if(joystickGetDigital(2, 6, JOY_DOWN)){
+		speed = -60;
+		target = encoderGet(shaftLinearGear);
 	}
 	else {
 		//speed = 0;
-		speed = -min(120, max(-120, PID(current, target, 2, 0.8, 0, 0)));
+		speed = -min(120, max(-12, PID(current, target, 2, 0.8, 0, 0)));
 		printf("linear gear value, target, speed: %d, %d, %d\n", encoderGet(shaftLinearGear), target, smartMotorGet(MOTORS_LINEAR));
 	}
 	linearGear(speed);
@@ -92,14 +86,14 @@ void opcontrolChainBar(){
    }
    if(joystickGetDigital(2, 5, JOY_UP)){
      speed = 75; 
-	 //print("button press");
+	 print("button press");
 	 cbTarget = encoderGet(encoderChainB);
 	 pidStatus = 0;
 	 prevPidStatus = pidStatus;
    }
    else if(joystickGetDigital(2, 5, JOY_DOWN)){
      speed = -75;
-	 //print("button press");
+	 print("button press");
 	 cbTarget = encoderGet(encoderChainB);
 	 pidStatus = 0;
 	 prevPidStatus = pidStatus;
@@ -119,7 +113,7 @@ void opcontrolChainBar(){
    else {
     //speed=0;
 	speed = -min(60, max(-60, PID(current, cbTarget, 1, 0.9, 0, 0)));
-	//printf("Chainbar value, chainbar speed: %d\n, %d\n", encoderGet(encoderChainB), smartMotorGet(MOTORS_CHAINB));
+	//printf("Chainbar value, target, speed: %d\n, %d, %d\n", encoderGet(encoderChainB), cbTarget, smartMotorGet(MOTORS_CHAINB));
 	pidStatus = 1;
    } 
    chainBar(speed);

@@ -6,3 +6,5 @@
  * off.
  */
 void  auto20PtRedRight();
+
+void autoBetter20PtRedRight();

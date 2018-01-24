@@ -1,0 +1,20 @@
+changes made today:
+-hopefully can test linear gear pid and autonomous
+  consult dafsss.jpg or something like that in concept folder for autonomous plan
+  right tankDrive going backwards second time is 
+-changed linear gear speed going down from -127 to -60
+
+tests done today:
+-linear gear pid 
+  doesnt seem to work but it looks like hardware problems
+  if linear gear reaches a certain point it just falls down
+  also sometimes after it falls down it wont go back up
+    this issue is REALLY inconsistent
+    its probably a hardware problem
+      its the zipties
+
+-barin was having field reset teams practice so couldn't test autonomous
+  one of their times was 1 minute 22 seconds
+  also had some squires un set the field
+  "so many violations" -Casey 1 23 18
+  "the goal is to practice field resetting not making random sculptures" -Barin 1 23 18
