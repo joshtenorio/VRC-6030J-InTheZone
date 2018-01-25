@@ -1,0 +1,15 @@
+changes made today:
+-barin starting vex tm lecture (vrc tournament manager)
+
+
+notes (if any):
+-procedures for field control
+  1. (during match) do save scores for previous match (look for gray checkmark)
+  2. (after match) click on saved match results for audience display AND queue next match
+  3. after MC announces score, wait 3 seconds, click on intro for audience display
+  4. listen for MC for timings
+  5. repeat, just listen for MC 
+
+
+tests done today:
+-auton skills need work, check journal

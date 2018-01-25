@@ -30,7 +30,8 @@
 void autonomous(){
 
   //autoPloopTest();
-  auto20PtRedRight();
+  //auto20PtRedRight();
+  autoSkills();
   
   //mobileGoal(-100);
   //delay(1250);

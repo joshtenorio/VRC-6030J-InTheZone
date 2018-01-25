@@ -33,6 +33,7 @@
 #include "autoLibrary.h"
 #include "PID.h"
 #include "autonTasks.h"
+#include "autonSkills.h"
 
 // Allow usage of this file in C++ programs
 #ifdef __cplusplus
