@@ -1,0 +1,7 @@
+changes made today:
+-making new auton for skills
+  check autonSkills.h for description
+-made theoretical auton method, needs testing (its in auto.c)
+
+
+tests done today:
