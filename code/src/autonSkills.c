@@ -71,7 +71,7 @@ void autoBetterSkills() {
 	autoChainBar(-80);
 	delay(800);
 
-	mobileGoal(75);
+	mobileGoal(100);
 	delay(1250);
 	mobileGoal(0);//mobile goal goes out (values need to be reworked and potentiometer needs extension cable wire)
 

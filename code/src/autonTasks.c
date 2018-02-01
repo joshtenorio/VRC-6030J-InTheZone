@@ -122,7 +122,7 @@ void auto20PtRedRight() {  //primary auton
 
 }
 
-void autoBetter20PtRedRight() {
+/*void autoBetter20PtRedRight() {
 	encoderReset(encoderChainB); //bring chainbar up
 	delay(20);
 	autoChainBar(-60);
@@ -161,7 +161,7 @@ void autoBetter20PtRedRight() {
 	}
 
 }
-
+*
 
 
 
@@ -181,6 +181,7 @@ void autoBetter20PtRedRight() {
    
    while (smartMotorGet(MOTOR_DRIVE_LF)<25){
      autoTankDrive(-500,500); //turn left
+     delay (5);
    } 
   encoderReset(leftDriveShaft);
    encoderReset(rightDriveShaft);
@@ -188,13 +189,15 @@ void autoBetter20PtRedRight() {
    
    while (smartMotorGet(MOTOR_DRIVE_LF)<25){
      autoTankDrive(500,500); //go forward
-   } 
+     delay(5); 
+     } 
   encoderReset(leftDriveShaft);
    encoderReset(rightDriveShaft);
    autoTankDrive(500,-500);   
    
    while (smartMotorGet(MOTOR_DRIVE_LF)<25){
      autoTankDrive(500,-500); //turn right 
+     delay(5);
    }
   encoderReset(leftDriveShaft);
    encoderReset(rightDriveShaft);
@@ -202,7 +205,7 @@ void autoBetter20PtRedRight() {
    
    while (smartMotorGet(MOTOR_DRIVE_LF)<25){
      autoTankDrive(1800,1800); //go forward
-     
+     delay(5);
     }
    */
    

@@ -34,17 +34,6 @@ void autonomous(){
   //autoSkills();
   autoBetterSkills();
   
-  /*
-  while (leftDriveShaft < 720) {
-	  tankDrive(127, 127);
-	  delay(1);
-  }
-  while (leftDriveShaft > 0) {
-	  tankDrive(-127, -127);
-	  delay(1);
-  } */
-  
-
 
   //mobileGoal(-100);
   //delay(1250);

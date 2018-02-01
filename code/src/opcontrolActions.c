@@ -48,7 +48,7 @@ void opcontrolLinearGear(){
 	else {
 		//speed = 0;
 		speed = -min(120, max(-12, PID(current, target, 2, 0.8, 0, 0)));
-		printf("linear gear value, target, speed: %d, %d, %d\n", encoderGet(shaftLinearGear), target, smartMotorGet(MOTORS_LINEAR));
+		//printf("linear gear value, target, speed: %d, %d, %d\n", encoderGet(shaftLinearGear), target, smartMotorGet(MOTORS_LINEAR));
 	}
 	linearGear(speed);
 }
@@ -69,62 +69,42 @@ void opcontrolConeGrabber(){
 
 
 void opcontrolChainBar(){
-   const int positionVertical = 0; //needs to be changed/adjusted
    int speed;
    int current = encoderGet(encoderChainB);
    static int cbTarget = 0; 
-   static int prevPidStatus = 0;
-   static int pidStatus = 0;/*
-   if((current > positionVertical && (joystickGetDigital(2, 5, JOY_DOWN) || target > current)) || (current < positionVertical && joystickGetDigital(2, 5, JOY_UP))){
-   }
-   else {     
-   } */
-   if (prevPidStatus == 0 && pidStatus == 1) {
-	   cbTarget = encoderGet(encoderChainB);
-	   prevPidStatus = pidStatus;
-	   print("target set");
-   }
+
    if(joystickGetDigital(2, 5, JOY_UP)){
      speed = 75; 
 	 print("button press");
 	 cbTarget = encoderGet(encoderChainB);
-	 pidStatus = 0;
-	 prevPidStatus = pidStatus;
    }
    else if(joystickGetDigital(2, 5, JOY_DOWN)){
      speed = -75;
 	 print("button press");
 	 cbTarget = encoderGet(encoderChainB);
-	 pidStatus = 0;
-	 prevPidStatus = pidStatus;
    } 
    else if(joystickGetDigital(2, 8, JOY_LEFT)){                                           
      speed = -min(60, max(-60, PID(current, -60, 1, 0.8, 0, 0)));    //holds chainbar right above mobile goal lifter
-	 cbTarget = encoderGet(encoderChainB);
-	 pidStatus = 0;
-	 prevPidStatus = pidStatus;
    }  
-   else if(joystickGetDigital(2, 8, JOY_RIGHT)){
-     speed = -min(60, max(-60, PID(current, -180, 1, 0.8, 0, 0)));  //holds chainbar to driver load level
-	 cbTarget = encoderGet(encoderChainB); 
-	 pidStatus = 0;
-	 prevPidStatus = pidStatus;
-   }
    else {
-    //speed=0;
-	speed = -min(60, max(-60, PID(current, cbTarget, 1, 0.9, 0, 0)));
-	//printf("Chainbar value, target, speed: %d\n, %d, %d\n", encoderGet(encoderChainB), cbTarget, smartMotorGet(MOTORS_CHAINB));
-	pidStatus = 1;
+	   if (current > -30) { //checks if chainbar is resting above mobile goal, if it is will not run PID
+		   speed=0;
+	   }
+	   else {
+		   speed = -min(60, max(-60, PID(current, cbTarget, 1, 0.9, 0, 0))); //running PID
+		   printf("Chainbar value, target, speed: %d\n, %d, %d\n", encoderGet(encoderChainB), cbTarget, smartMotorGet(MOTORS_CHAINB));
+	   }
    } 
    chainBar(speed);
  }
 
-static float linearGearStack[4] = {0, 0, 0, 150}; //these two arrays need to be updated with real target values
-static float chainBarStack[4] = {0, -25, -36, -20}; //each float in the array corresponds to the number of cones in stack
-int coneCount = 0;  //each float in the array is a target value for each mechanism
-int buttonState = 0; //refers to down button on vexnet joystick, group 7
-int prevButtonState = 0; //holds last state of down button vexnet joystick, group 7
+static float linearGearStack[3] = {0, 0, 0}; //these two arrays need to be updated with real target values
+static float chainBarStack[3] = {0, -25, -36}; //each float in the array corresponds to the number of cones in stack
 void opcontrolStack(){
+	static int coneCount = 0;  //each float in the array is a target value for each mechanism
+	static int buttonState = 0; //refers to down button on vexnet joystick, group 7
+	static int prevButtonState = 0; //holds last state of down button vexnet joystick, group 7
+
 	int chainbarSpeed;
 	int linearGearSpeed;
 	int coneGrabberSpeed;
