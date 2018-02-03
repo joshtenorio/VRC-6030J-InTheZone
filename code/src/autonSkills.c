@@ -1,21 +1,22 @@
 #include "main.h"
 
 void autoSkills() {
+	int cbCurrent = encoderGet(encoderChainB);
 	encoderReset(encoderChainB); //bring chainbar up
 	delay(20);
-	autoChainBar(-80);
-	delay(800);
+	chainBar(-min(60, max(-60, PID(cbCurrent, -80, 1, 0.8, 0, 0))));
+	delay(1000);
 
-	mobileGoal(75);
-	delay(1350);
+	mobileGoal(100);
+	delay(1300);
 	mobileGoal(0);//mobile goal goes out 
 
 	encoderReset(leftDriveShaft);
 	encoderReset(rightDriveShaft);
-	autoTankDrive(1200, 1200); //rework these values
+	autoTankDrive(1600, 1600); //rework these values
 	delay(1);
 	while (smartMotorGet(MOTOR_DRIVE_LF) > 30) {
-		autoTankDrive(1200, 1200);            //go forward
+		autoTankDrive(1600, 1600);            //go forward
 		delay(1);
 	}
 	tankDrive(0, 0);  //stop drivetrain
@@ -72,7 +73,7 @@ void autoBetterSkills() {
 	delay(800);
 
 	mobileGoal(100);
-	delay(1250);
+	delay(1300);
 	mobileGoal(0);//mobile goal goes out (values need to be reworked and potentiometer needs extension cable wire)
 
 	encoderReset(leftDriveShaft);
@@ -87,11 +88,11 @@ void autoBetterSkills() {
 	delay(1);
 
 	mobileGoal(-100);
-	delay(1350);
+	delay(1250);
 	mobileGoal(0);  //mobile goal goes back in 
 
 	chainBar(0); //stops chainbar PID
-	delay(700);
+	delay(500);
 
 	encoderReset(leftDriveShaft);
 	encoderReset(rightDriveShaft);
@@ -104,10 +105,10 @@ void autoBetterSkills() {
 
 	encoderReset(leftDriveShaft);
 	encoderReset(rightDriveShaft);
-	autoTankDrive(-700, 700);
+	autoTankDrive(-225, 225);
 	delay(1);
 	while (smartMotorGet(MOTOR_DRIVE_LF) < -30) {
-		autoTankDrive(-700, 700); //135 degree turn left
+		autoTankDrive(-225, 225); //135 degree turn left
 		delay(1);
 	}
 	

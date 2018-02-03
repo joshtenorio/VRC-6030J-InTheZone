@@ -21,6 +21,7 @@
 #define SHAFTDRIVE_RB          4,5
 #define ENCODER_CHAINB         6,7
 #define ENCODER_LINEARG        8,9
+#define ENCODER_RLINEAR        11,12
 #define POTENTIOMETER_MOBGOAL  2
 //any shaft encoder cannot go in port 10
 //declaring encoders...
@@ -28,6 +29,7 @@ Encoder leftDriveShaft;
 Encoder rightDriveShaft;
 Encoder encoderChainB;
 Encoder shaftLinearGear;
+Encoder otherLinearGear;
 
 
 void tankDrive(int leftSpeed, int rightSpeed);

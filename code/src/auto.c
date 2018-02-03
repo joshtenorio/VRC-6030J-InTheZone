@@ -31,13 +31,36 @@ void autonomous(){
 
   //autoPloopTest();
   //auto20PtRedRight();
-  //autoSkills();
-  autoBetterSkills();
+  autoSkills();
+  //autoBetterSkills();
+	/*
+	encoderReset(leftDriveShaft);
+	encoderReset(rightDriveShaft);
+	autoTankDrive(1000, -20);
+	delay(5);
+	while (smartMotorGet(MOTOR_DRIVE_LF) > 30) {
+		autoTankDrive(1000, -20); //135 degree turn right
+		delay(1);
+	}
+	tankDrive(0, 0);
+	
+	encoderReset(leftDriveShaft);
+	encoderReset(rightDriveShaft);
+	autoTankDrive(225, -225);
+	delay(1);
+	while (smartMotorGet(MOTOR_DRIVE_LF) > 30) {
+		autoTankDrive(225, -225); //135 degree turn left
+		delay(1);
+	}
+	tankDrive(0, 0);
   
 
-  //mobileGoal(-100);
-  //delay(1250);
-  //mobileGoal(0);
+ mobileGoal(-100);
+ delay(1250); //mob goal in
+  mobileGoal(0);
   
-  
+	mobileGoal(100);
+	delay(1300); //mob goal out
+	mobileGoal(0);
+  */
 }
