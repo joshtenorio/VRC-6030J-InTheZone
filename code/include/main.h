@@ -30,7 +30,7 @@
 #include "motor.h"
 #include "subsystems.h"
 #include "opcontrolActions.h"
-#include "autoLibrary.h"
+#include "autolibrary.h"
 #include "PID.h"
 #include "autonTasks.h"
 #include "autonSkills.h"

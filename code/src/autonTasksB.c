@@ -53,8 +53,4 @@ void auto20PtRedRighta() {  //primary auton
 }
   ///// test the rotating feature then continue ////
 
-/* hi sofia i fixed some of your code just so it would compile, I added an end brace/curly brace and changed the name of the function because theres already
-a function named auto20PtRedRight
--Josh, 1 31 18 10:14 PM
-*/
   
