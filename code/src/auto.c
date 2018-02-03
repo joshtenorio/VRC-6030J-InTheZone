@@ -29,10 +29,8 @@
 
 void autonomous(){
 
-  //autoPloopTest();
-  //auto20PtRedRight();
-  autoSkills();
-  //autoBetterSkills();
+  //autoSkills();
+  autoBetterSkills();
 	/*
 	encoderReset(leftDriveShaft);
 	encoderReset(rightDriveShaft);
@@ -49,7 +47,7 @@ void autonomous(){
 	autoTankDrive(225, -225);
 	delay(1);
 	while (smartMotorGet(MOTOR_DRIVE_LF) > 30) {
-		autoTankDrive(225, -225); //135 degree turn left
+		autoTankDrive(225, -225); //90 degree turn left
 		delay(1);
 	}
 	tankDrive(0, 0);

@@ -62,19 +62,15 @@ void autoSkills() {
 }
 
 
-
-
-
-
 void autoBetterSkills() {
 	encoderReset(encoderChainB); //bring chainbar up
 	delay(20);
 	autoChainBar(-80);
-	delay(800);
+	delay(1200);
 
 	mobileGoal(100);
 	delay(1300);
-	mobileGoal(0);//mobile goal goes out (values need to be reworked and potentiometer needs extension cable wire)
+	mobileGoal(0); //mob goal out
 
 	encoderReset(leftDriveShaft);
 	encoderReset(rightDriveShaft);
@@ -105,10 +101,10 @@ void autoBetterSkills() {
 
 	encoderReset(leftDriveShaft);
 	encoderReset(rightDriveShaft);
-	autoTankDrive(-225, 225);
+	autoTankDrive(-337, 337);
 	delay(1);
 	while (smartMotorGet(MOTOR_DRIVE_LF) < -30) {
-		autoTankDrive(-225, 225); //135 degree turn left
+		autoTankDrive(-337, 337); //135 degree turn left
 		delay(1);
 	}
 	
