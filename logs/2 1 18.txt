@@ -1,0 +1,17 @@
+changes made today:
+-made a change to chainbar so holdLastPosition only runs when chainbar is out and about 
+  AKA chainbar will not running when it resting on mobile goal lifter
+-want to test some turns for autonomous using autonomous
+-also testing auton for skills
+
+-also linear gear can't climb really high
+  removing rails because it created too much friction (we originally looked for a software solution but no result)
+  
+-issue in autonomous where chainbar goes too far
+  could try using a while loop just in case motor speed isn't updating or delay is too short to set motor speed for chainbar
+
+tests done today:
+-chainbar dontHoldLastPositionWhenISaySo tests:
+  test 1: it works
+  
+-90 degree turn is 225/-225 for encoders
