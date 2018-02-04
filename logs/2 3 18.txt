@@ -1,0 +1,8 @@
+changes made today:
+-distance per rotation = ~11.78 inches
+-finished prototyping autonomous needs testing
+-issue with chainbar going too far in autonomous was the two rubber bands high strength 
+  one rubber band on each side helping chainbar works in autonomous
+-removed autoSkills in autoskills.c because we werent really using it
+
+results:
