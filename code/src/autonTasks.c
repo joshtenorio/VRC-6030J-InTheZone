@@ -4,7 +4,7 @@ void auto20PtRedRight() {  //primary auton
 
 	encoderReset(encoderChainB); //bring chainbar up
 	delay(20);
-	autoChainBar(-60);
+	autoChainBar(-40);//original value was -60
 	delay(1000);
 
 	mobileGoal(75);
@@ -89,7 +89,7 @@ void auto20PtRedRight() {  //primary auton
 		delay(5);
 	}
 
-	//autoChainBar(-60); //chainbar goes up
+	//autoChainBar(-40); //chainbar goes up
 	delay(500);
 
 	mobileGoal(100); //mobile goal goes out
@@ -125,7 +125,7 @@ void auto20PtRedRight() {  //primary auton
 /*void autoBetter20PtRedRight() {
 	encoderReset(encoderChainB); //bring chainbar up
 	delay(20);
-	autoChainBar(-60);
+	autoChainBar(-40);
 	delay(1000);
 
 	mobileGoal(75);

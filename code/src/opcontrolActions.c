@@ -27,31 +27,23 @@ void opcontrolMobileGoal(){
 }
 
 void opcontrolLinearGear(){  
-
   int speed;
 	static int target = 0;
-	int rightCurrent = encoderGet(shaftLinearGear);
-	int leftCurrent = encoderGet(otherLinearGear);
+	int current = encoderGet(shaftLinearGear);
 
 	if(joystickGetDigital(2, 6, JOY_UP)){
 		speed = 127;
 		target = encoderGet(shaftLinearGear);
-    target = encoderGet (otherLinearGear);
-	}
-  
+	} 
 	else if(joystickGetDigital(2, 6, JOY_DOWN)){
 		speed = -60;
-		target = encoderGet(shaftLinearGear);
-    target = encoderGet (otherLinearGear);
-    
-	}
-  
+		target = encoderGet(shaftLinearGear);   
+	} 
 	else {
 		//speed = 0;
 		speed = -min(120, max(-12, PID(current, target, 2, 0.8, 0, 0)));
 		//printf("linear gear value, target, speed: %d, %d, %d\n", encoderGet(shaftLinearGear), target, smartMotorGet(MOTORS_LINEAR));
-	}
-  
+	}  
 	linearGear(speed);
 }
 
@@ -90,7 +82,7 @@ void opcontrolChainBar(){
      speed = -min(60, max(-60, PID(current, -60, 1, 0.8, 0, 0)));    //holds chainbar right above mobile goal lifter
    }  
    else {
-	   if (current > -30) { //checks if chainbar is resting above mobile goal, if it is will not run PID
+	   if (current > -20) { //checks if chainbar is resting above mobile goal, if it is will not run PID
 		   speed=0;
 	   }
 	   else {
