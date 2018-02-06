@@ -1,5 +1,5 @@
-# JeStErS-ITZ-code
-for VRC ITZ code, coded for PROS
+# Jesters 6030J In The Zone code
+for VRC In The Zone 2017-18 code, coded for PROS
 
 This is pretty much a repository so that i can keep track of changes
 
