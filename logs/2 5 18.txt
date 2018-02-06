@@ -1,0 +1,6 @@
+changes made today:
+-commented out linear gear code in opcontrolStack
+-added code to opcontrolDebug where if you press button it'll stop all motors
+
+
+tests done today:
