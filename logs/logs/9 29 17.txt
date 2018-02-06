@@ -1,5 +1,0 @@
-changes done today:
-discussed motor ports
-
-tests done today:
-nope
