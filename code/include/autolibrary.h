@@ -15,10 +15,13 @@ Encoder encoderChainB;
 Encoder shaftLinearGear;
 
 void autoTankDrive(int leftTarget, int rightTarget);
+void autoSmartTankDrive(int leftTarget, int rightTarget);
 void autoChainBar(int target);
 void autoLinearGear(int target);
 void autoTimeConeG(int speed, int time);
 void autoTimeMobileGoal(int speed, int time);
+void autoResetDriveEncoders();
+
 
 
 void autoPloopTest();

@@ -79,7 +79,7 @@ void opcontrolChainBar(){
    } 
    
    else if(joystickGetDigital(2, 8, JOY_LEFT)){                                           
-     speed = -min(60, max(-60, PID(current, -60, 1, 0.8, 0, 0)));    //holds chainbar right above mobile goal lifter (preset)
+     speed = -min(60, max(-60, PID(current, -70, 1, 0.8, 0, 0)));    //holds chainbar right above mobile goal lifter (preset)
    }  
    else { //if no chainbar control buttons are being pressed
 	   if (current > -15) { //checks if chainbar is resting above mobile goal, if it is will not run PID (dead band)
@@ -149,17 +149,20 @@ void opcontrolStack(){
 }
 
 void opcontrolDebug() {
-
 	if (joystickGetDigital(2, 7, JOY_UP)) {
 		encoderReset(encoderChainB);
 		encoderReset(leftDriveShaft);
 		encoderReset(rightDriveShaft);
 		encoderReset(shaftLinearGear);
+	}
+}
+
+void opcontrolPanic() {
+	if (joystickGetDigital(2, 8, JOY_UP)) {
 		tankDrive(0, 0);
 		mobileGoal(0);
 		linearGear(0);
 		chainBar(0);
 		coneGrabber(0);
 	}
-
 }

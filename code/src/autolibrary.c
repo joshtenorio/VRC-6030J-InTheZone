@@ -12,6 +12,19 @@ void autoTankDrive(int leftTarget, int rightTarget){
 
 }
 
+void autoSmartTankDrive(int leftTarget, int rightTarget) {
+	encoderReset(leftDriveShaft);
+	encoderReset(rightDriveShaft);
+	autoTankDrive(leftTarget, rightTarget);
+	delay(1);
+	while (smartMotorGet(MOTOR_DRIVE_LF) > 30) {
+		autoTankDrive(leftTarget, rightTarget); 
+		delay(1);
+	}
+	tankDrive(0, 0);  
+	delay(1);
+}
+
 void autoChainBar(int target){ 
 
   int current = encoderGet(encoderChainB);
@@ -28,6 +41,10 @@ void autoLinearGear(int target){
   linearGear(speed);
 }
 
+void autoResetDriveEncoders() {
+	encoderReset(leftDriveShaft);
+	encoderReset(rightDriveShaft);
+}
 
 void autoTimeConeG(int speed, int time) {
 	coneGrabber(speed);

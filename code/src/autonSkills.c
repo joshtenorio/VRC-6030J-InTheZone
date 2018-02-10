@@ -11,16 +11,7 @@ void autoBetterSkills() {
 	delay(1450);
 	mobileGoal(0); //mob goal out
 
-	encoderReset(leftDriveShaft);
-	encoderReset(rightDriveShaft);
-	autoTankDrive(1800, 1800);
-	delay(1);
-	while (smartMotorGet(MOTOR_DRIVE_LF) > 30) {
-		autoTankDrive(1800, 1800);            //go forward
-		delay(1);
-	}
-	tankDrive(0, 0);  //stop drivetrain
-	delay(1);
+	autoSmartTankDrive(1800, 1800); //drive forward, this is experimental testing
 
 	mobileGoal(-100);
 	delay(1350);
@@ -40,10 +31,10 @@ void autoBetterSkills() {
 
 	encoderReset(leftDriveShaft);
 	encoderReset(rightDriveShaft);
-	autoTankDrive(-250, 250);
+	autoTankDrive(-350, 350); //if 350 doesnt work try 337 or something like that
 	delay(1);
 	while (smartMotorGet(MOTOR_DRIVE_LF) < -30) {
-		autoTankDrive(-250, 250); //135 degree turn left
+		autoTankDrive(-350, 350); //135 degree turn left
 		delay(1);
 	}
 	/*
@@ -52,7 +43,7 @@ void autoBetterSkills() {
 	autoTankDrive(600, 600);
 	delay(1);
 	while (smartMotorGet(MOTOR_DRIVE_LF) > 30) {
-		autoTankDrive(600, 600);            //go forward
+		autoTankDrive(600, 600);            //go forwar
 		delay(1);
 	}
 
@@ -74,9 +65,11 @@ void autoBetterSkills() {
 		autoTankDrive(400, 400); //going forward into the 10 pt zone
 		delay(1);
 	} */
+	
+	coneGrabber(90); //remove cone
 	encoderReset(encoderChainB); //bring chainbar up
-	delay(20);
-	autoChainBar(-40);
+	delay(200);
+	autoChainBar(-55);
 	delay(1200);
 	
 	mobileGoal(100);
