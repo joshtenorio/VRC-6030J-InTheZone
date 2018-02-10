@@ -1,0 +1,8 @@
+changes made today:
+-moved motor stop buttons to a different button (opcontrolPanic) on right button group up
+  needs testing
+-thought about moving autostack to its own file
+  decided not to since current file names are kind of abstract/generalized (except for PID.c)
+
+
+tests done today:

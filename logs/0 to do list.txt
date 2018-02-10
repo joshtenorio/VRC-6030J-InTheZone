@@ -5,8 +5,6 @@
 
 -make thing in driver control basically mobile goal soft stop using potentiometer
 
-
-
  
  -rework 20 point autonomous so it scores and goes faster 
  
@@ -17,10 +15,6 @@
  
 
 -roast michelle (execute immediately)
-  
-  
-  
--tweak kP values when we have relevant sensors (zieglers-nichol tuning method)
 
+-test autostack
   
- -make I term for linear gear and chainbar so autostack works better

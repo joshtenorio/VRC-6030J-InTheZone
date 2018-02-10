@@ -1,0 +1,11 @@
+changes made today:
+-tidied up code, updated subsystems.h description of chainbar motors define statement because we don't use power expander
+-made a function to reset both drivetrain encoders, needs testing just to see it actually works
+-made a smarter auto tank drive that would reduce # of lines of code needed, making code easier to read
+  needs testing & implementation
+
+
+tests done today:
+-nothing on partner control seems to be working
+  checking if the controller batteries are the problem
+    batteries seem to be the problem but chainbar is weird (most likely PTC)
