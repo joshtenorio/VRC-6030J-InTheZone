@@ -1,5 +1,5 @@
 # Jesters 6030J In The Zone code
-for VRC In The Zone 2017-18 code, coded for PROS
+for VRC In The Zone code, using PROS api
 
 This is pretty much a repository so that i can keep track of changes
 
