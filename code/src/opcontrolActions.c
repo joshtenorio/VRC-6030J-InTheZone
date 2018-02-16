@@ -111,8 +111,11 @@ void opcontrolStack(){
 		chainBar(-min(60, max(-60, PID(cbCurrent, chainBarStack[coneCount], 1, 0.8, 0, 0))));
 		while (abs(smartMotorGet(MOTORS_CHAINB)) > 30) { //bring chainbar to mobile goal stack
 			chainBar(-min(60, max(-60, PID(cbCurrent, chainBarStack[coneCount], 1, 0.8, 0, 0))));
-			delay(1);
+			if (abs((chainBarStack[coneCount] - cbCurrent)) < 15) {
+				break;
+			}
 			print("chainbar to stack");
+			delay(1);
 		}
 
 		coneGrabber(-90); //dropping cone
@@ -122,7 +125,10 @@ void opcontrolStack(){
 		chainBar(-min(60, max(-60, PID(cbCurrent, -140, 1, 0.8, 0, 0))));
 		while (abs(smartMotorGet(MOTORS_CHAINB)) > 30) { //bring chainbar to driver load station
 			chainBar(-min(60, max(-60, PID(cbCurrent, -140, 1, 0.8, 0, 0))));
-			print("chainbar to driverload");
+			printf("chainbar speed: %d\n", smartMotorGet(MOTORS_CHAINB));
+			if (abs((-140 - cbCurrent)) < 15) {
+				break;
+			}
 			delay(1);
 		}
 
@@ -137,7 +143,7 @@ void opcontrolStack(){
 		opcontrolChainBar();
 		opcontrolConeGrabber();
 	}
-	printf("conegrabber, chainbar: %d, %d\n", smartMotorGet(MOTOR_CONEG), smartMotorGet(MOTORS_CHAINB));
+
 }
 
 void opcontrolPanic() {
