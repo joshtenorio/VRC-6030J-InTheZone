@@ -1,20 +1,16 @@
--make letter to future jesters
-
 
 -need documentation in every header files
 
--make thing in driver control basically mobile goal soft stop using potentiometer
 
- 
  -rework 20 point autonomous so it scores and goes faster 
  
- -also make a separate skills autonomous where it can score 20-30 points
-  (https://www.youtube.com/watch?v=9d29P9Y0j-Q) for reference
-  maybe either set tankdrive motor speeds to 127 inside of a while loop that runs while encoders are at a certain value OR
-  boost kP to really really high. going to try first method first
- 
 
--roast michelle (execute immediately)
+-autostack
 
--test autostack
-  
+  fix
+    maybe move autostack to its own c file?
+    because zack has his autostack in a different file
+  test
+    making calls to normal opcontrol functions for chainbar and cone manipulators so it might not get stuck
+    might have to remove opcontrolchainbar and conegrabber in opcontrol.c if this doesnt really work (TEST THIS)
+    test to see if every other subsystem works ok after and before using autostack
