@@ -29,21 +29,14 @@ void autoBetterSkills() {
 		delay(1);
 	}
 
+	autoSmartTankDrive(-350, 350); //135 degree turn left, if doesnt work try 337 
+	
 	encoderReset(leftDriveShaft);
 	encoderReset(rightDriveShaft);
-	autoTankDrive(-350, 350); //if 350 doesnt work try 337 or something like that
-	delay(1);
-	while (smartMotorGet(MOTOR_DRIVE_LF) < -30) {
-		autoTankDrive(-350, 350); //135 degree turn left
-		delay(1);
-	}
-	/*
-	encoderReset(leftDriveShaft);
-	encoderReset(rightDriveShaft);
-	autoTankDrive(600, 600);
+	autoTankDrive(200, 200);
 	delay(1);
 	while (smartMotorGet(MOTOR_DRIVE_LF) > 30) {
-		autoTankDrive(600, 600);            //go forwar
+		autoTankDrive(200, 200);            //go forward
 		delay(1);
 	}
 
@@ -57,14 +50,16 @@ void autoBetterSkills() {
 		delay(1);
 	}
 
+	autoSmartTankDrive(-150, -150); //go backwards kind of
+
 	encoderReset(leftDriveShaft);
 	encoderReset(rightDriveShaft);
-	autoTankDrive(400, 400);
+	autoTankDrive(500, 500);
 	delay(1);
 	while (smartMotorGet(MOTOR_DRIVE_LF) > 30) {
-		autoTankDrive(400, 400); //going forward into the 10 pt zone
+		autoTankDrive(500, 500); //going forward into the 10 pt zone
 		delay(1);
-	} */
+	} 
 	
 	coneGrabber(90); //remove cone
 	encoderReset(encoderChainB); //bring chainbar up

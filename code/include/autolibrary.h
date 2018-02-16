@@ -14,6 +14,11 @@ Encoder rightDriveShaft;
 Encoder encoderChainB;
 Encoder shaftLinearGear;
 
+
+
+/////////////////////////
+//Prototyping Functions//
+/////////////////////////
 void autoTankDrive(int leftTarget, int rightTarget);
 void autoSmartTankDrive(int leftTarget, int rightTarget);
 void autoChainBar(int target);

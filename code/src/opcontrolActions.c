@@ -68,21 +68,22 @@ void opcontrolChainBar(){
    static int cbTarget = 0; 
 
    if(joystickGetDigital(2, 5, JOY_UP)){ //move chainbar
-     speed = 75; 
+     speed = 65; 
 	 print("button press");  
 	 cbTarget = encoderGet(encoderChainB);
    }
    else if(joystickGetDigital(2, 5, JOY_DOWN)){ //move chainbar
-     speed = -75;
+     speed = -65;
 	 print("button press");
 	 cbTarget = encoderGet(encoderChainB);
    } 
    
    else if(joystickGetDigital(2, 8, JOY_LEFT)){                                           
      speed = -min(60, max(-60, PID(current, -70, 1, 0.8, 0, 0)));    //holds chainbar right above mobile goal lifter (preset)
+	 cbTarget = encoderGet(encoderChainB);
    }  
    else { //if no chainbar control buttons are being pressed
-	   if (current > -15) { //checks if chainbar is resting above mobile goal, if it is will not run PID (dead band)
+	   if (cbTarget > -15) { //checks if chainbar is resting above mobile goal, if it is will not run PID (dead band)
 		   speed=0;
 	   }
 	   else {
@@ -93,68 +94,50 @@ void opcontrolChainBar(){
    chainBar(speed); //setting speed for chainbar
  }
 
-//static float linearGearStack[3] = {0, 0, 0}; //these two arrays need to be updated with real target values
+
 static float chainBarStack[3] = {0, -25, -36}; //each float in the array corresponds to the number of cones in stack
 void opcontrolStack(){
 	static int coneCount = 0;  //each float in the array is a target value for each mechanism
-	static int buttonState = 0; //refers to down button on vexnet joystick, group 7
-	static int prevButtonState = 0; //holds last state of down button vexnet joystick, group 7
-
 	int chainbarSpeed;
-	//int linearGearSpeed;
 	int coneGrabberSpeed;
 	int cbCurrent = encoderGet(encoderChainB);
-	//int lgCurrent = encoderGet(shaftLinearGear);
-	if(joystickGetDigital(2, 7, JOY_RIGHT)){ //reset cone stack
+
+	if(joystickGetDigital(2, 7, JOY_RIGHT)){ //reset cone stack variable
 		coneCount = 0;
 	}
 	else if(joystickGetDigital(2, 7, JOY_LEFT)){ //hold this to auto stack
 
-		chainbarSpeed = -min(60, max(-60, PID(cbCurrent, -180, 1, 0.8, 0, 0)));
-		while (abs(smartMotorGet(MOTORS_CHAINB)) > 20) { //bring chainbar to driver load station
-			chainbarSpeed = -min(60, max(-60, PID(cbCurrent, -180, 1, 0.8, 0, 0)));
-			delay(1);
-		}
-		/*
-		linearGearSpeed = -min(120, max(-120, PID(lgCurrent, linearGearStack[coneCount], 2, 0.8, 0, 0)));
-		while ((abs(smartMotorGet(MOTORS_LINEAR)) > 20)) {
-			linearGearSpeed = -min(120, max(-120, PID(lgCurrent, linearGearStack[coneCount], 2, 0.8, 0, 0))); //bring linear gear to driver station level
-			delay(1);
-		} */
-	
-		coneGrabberSpeed = 0;
-		delay(20);
-		coneGrabberSpeed = -90; //this needs speed to pick up cone
-		delay(200);
-		coneGrabberSpeed = 0;
-		/*
-		linearGearSpeed = -min(127, max(-127, PID(lgCurrent, linearGearStack[coneCount], 2, 0.8, 0, 0)));
-		while ((abs(smartMotorGet(MOTORS_LINEAR)) > 20)) {
-			linearGearSpeed = -min(127, max(-127, PID(lgCurrent, linearGearStack[coneCount], 2, 0.7, 0, 0))); //bring linear gear to stack
-			delay(1);
-		} */
 
-		chainbarSpeed = -min(60, max(-60, PID(cbCurrent, chainBarStack[coneCount], 1, 0.8, 0, 0)));
-		while (abs(smartMotorGet(MOTORS_CHAINB)) > 20) { //bring chainbar to mobile goal stack
-			chainbarSpeed = -min(60, max(-60, PID(cbCurrent, chainBarStack[coneCount], 1, 0.8, 0, 0)));
+		chainBar(-min(60, max(-60, PID(cbCurrent, chainBarStack[coneCount], 1, 0.8, 0, 0))));
+		while (abs(smartMotorGet(MOTORS_CHAINB)) > 30) { //bring chainbar to mobile goal stack
+			chainBar(-min(60, max(-60, PID(cbCurrent, chainBarStack[coneCount], 1, 0.8, 0, 0))));
 			delay(1);
+			print("chainbar to stack");
 		}
-		coneGrabberSpeed = 90; //drop cone
+
+		coneGrabber(-90); //dropping cone
+
 		coneCount += 1;
-	}
 
-	//linearGear(linearGearSpeed);
-	chainBar(chainbarSpeed);
-	coneGrabber(coneGrabberSpeed);
-}
+		chainBar(-min(60, max(-60, PID(cbCurrent, -140, 1, 0.8, 0, 0))));
+		while (abs(smartMotorGet(MOTORS_CHAINB)) > 30) { //bring chainbar to driver load station
+			chainBar(-min(60, max(-60, PID(cbCurrent, -140, 1, 0.8, 0, 0))));
+			print("chainbar to driverload");
+			delay(1);
+		}
 
-void opcontrolDebug() {
-	if (joystickGetDigital(2, 7, JOY_UP)) {
-		encoderReset(encoderChainB);
-		encoderReset(leftDriveShaft);
-		encoderReset(rightDriveShaft);
-		encoderReset(shaftLinearGear);
+		coneGrabber(0);
+		delay(20);
+		coneGrabber(90); //this needs speed to pick up cone
+		delay(200);
+		coneGrabber(0);
+
 	}
+	else { //if autostack isn't running, run normal chainbar/conegrabber opcontrol functions
+		opcontrolChainBar();
+		opcontrolConeGrabber();
+	}
+	printf("conegrabber, chainbar: %d, %d\n", smartMotorGet(MOTOR_CONEG), smartMotorGet(MOTORS_CHAINB));
 }
 
 void opcontrolPanic() {
@@ -166,3 +149,13 @@ void opcontrolPanic() {
 		coneGrabber(0);
 	}
 }
+
+void opcontrolDebug() {
+	if (joystickGetDigital(2, 7, JOY_UP)) {
+		encoderReset(encoderChainB);
+		encoderReset(leftDriveShaft);
+		encoderReset(rightDriveShaft);
+		encoderReset(shaftLinearGear);
+	}
+}
+

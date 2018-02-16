@@ -40,8 +40,8 @@ void operatorControl(){
     opcontrolLinearGear();
     opcontrolChainBar();
 	opcontrolConeGrabber();
-    //opcontrolStack();
-	//opcontrolPanic();
+    opcontrolStack();
+	opcontrolPanic();
     
     opcontrolDebug();
 	//printf("Chainbar value, target, speed: %d, %d, %d\n", encoderGet(encoderChainB), cbTarget, smartMotorGet(MOTORS_CHAINB));

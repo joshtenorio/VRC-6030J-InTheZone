@@ -28,7 +28,6 @@ Encoder leftDriveShaft;
 Encoder rightDriveShaft;
 Encoder encoderChainB;
 Encoder shaftLinearGear;
-Encoder otherLinearGear;
 
 
 void tankDrive(int leftSpeed, int rightSpeed);
