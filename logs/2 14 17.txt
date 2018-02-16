@@ -1,0 +1,8 @@
+changes made today:
+-redid file location
+  instead of code in VEX folder, code is now in In The Zone 2017 18 folder, which is in VEX folder
+  might screw up bitbucket but i dont think so
+
+
+
+tests done today:

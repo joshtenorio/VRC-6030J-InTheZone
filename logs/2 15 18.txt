@@ -1,0 +1,34 @@
+changes made today:
+-uncommented some parts in skills auton (which is also match auton)
+-reduced speed for auton skills going forward after the 135 degree turn left
+-changed chainbar PID deadband to reference target value instead of current
+  needs testing
+-also replacing short wire extensions with longer ones
+  should improve robot performance
+-removed unused variables in autostack
+  variables were buttonState and prevButtonState
+-also removed linear gear stuff in autostack, so now opcontrolStack just uses chainbar and cone grabber motors
+  should research PROS tasks
+-replaced some tank drive movements in auton skills with the smarter autonomous tank drive function
+  needs testing
+-lowered chainbar speeds in driver control
+
+
+
+tests done today:
+-new chainbar speeds:
+  robot can still stack
+  
+-testing autostack  
+test 1:
+  it goes to driver load then stop
+  robot doesnt respond to any input from joystick after that
+  rearranged code so it goes to mobile goal first
+  
+test 2:
+  same result as last time, gets stuck at going to driver load
+  making calls to normal opcontrol functions for chainbar and cone manipulators so it might not get stuck
+  rubber band going wrong way
+test 3:
+  same result as last time
+  
