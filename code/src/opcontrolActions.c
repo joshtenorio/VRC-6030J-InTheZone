@@ -95,11 +95,9 @@ void opcontrolChainBar(){
  }
 
 
-static float chainBarStack[3] = {0, -25, -36}; //each float in the array corresponds to the number of cones in stack
+static int chainBarStack[4] = {0, 25, 36, 36}; //each float in the array corresponds to the number of cones in stack
 void opcontrolStack(){
 	static int coneCount = 0;  //each float in the array is a target value for each mechanism
-	int chainbarSpeed;
-	int coneGrabberSpeed;
 	int cbCurrent = encoderGet(encoderChainB);
 
 	if(joystickGetDigital(2, 7, JOY_RIGHT)){ //reset cone stack variable
@@ -108,25 +106,27 @@ void opcontrolStack(){
 	else if(joystickGetDigital(2, 7, JOY_LEFT)){ //hold this to auto stack
 
 
-		chainBar(-min(60, max(-60, PID(cbCurrent, chainBarStack[coneCount], 1, 0.8, 0, 0))));
+		chainBar(min(60, max(-60, PID(cbCurrent, chainBarStack[coneCount], 1, 0.8, 0, 0))));
 		while (abs(smartMotorGet(MOTORS_CHAINB)) > 30) { //bring chainbar to mobile goal stack
-			chainBar(-min(60, max(-60, PID(cbCurrent, chainBarStack[coneCount], 1, 0.8, 0, 0))));
-			if (abs((chainBarStack[coneCount] - cbCurrent)) < 15) {
+			cbCurrent = encoderGet(encoderChainB);
+			chainBar(min(60, max(-60, PID(cbCurrent, chainBarStack[coneCount], 1, 0.8, 0, 0))));
+			if (abs(chainBarStack[coneCount] - cbCurrent) < 20) {
 				break;
 			}
-			print("chainbar to stack");
+			printf("chainbar speed, target, 190, current, cone count: %d %d, %d, %d, %d\n", smartMotorGet(MOTORS_CHAINB), chainBarStack[coneCount], 190, encoderGet(encoderChainB), coneCount);
 			delay(1);
 		}
-
-		coneGrabber(-90); //dropping cone
+		delay(750);
+		coneGrabber(90); //dropping cone
 
 		coneCount += 1;
 
-		chainBar(-min(60, max(-60, PID(cbCurrent, -140, 1, 0.8, 0, 0))));
+		chainBar(min(60, max(-60, PID(cbCurrent, 190, 1, 0.8, 0, 0))));
 		while (abs(smartMotorGet(MOTORS_CHAINB)) > 30) { //bring chainbar to driver load station
-			chainBar(-min(60, max(-60, PID(cbCurrent, -140, 1, 0.8, 0, 0))));
-			printf("chainbar speed: %d\n", smartMotorGet(MOTORS_CHAINB));
-			if (abs((-140 - cbCurrent)) < 15) {
+			cbCurrent = encoderGet(encoderChainB);
+			chainBar(min(60, max(-60, PID(cbCurrent, 190, 1, 0.8, 0, 0))));
+			printf("CHAINBAR speed, target, 190, current: %d, %d, %d, %d\n", smartMotorGet(MOTORS_CHAINB), chainBarStack[coneCount], 190, encoderGet(encoderChainB));
+			if (abs(190 - cbCurrent) < 20) {
 				break;
 			}
 			delay(1);
@@ -134,9 +134,10 @@ void opcontrolStack(){
 
 		coneGrabber(0);
 		delay(20);
-		coneGrabber(90); //this needs speed to pick up cone
-		delay(200);
+		coneGrabber(-90); //this needs speed to pick up cone
+		delay(750);
 		coneGrabber(0);
+
 
 	}
 	else { //if autostack isn't running, run normal chainbar/conegrabber opcontrol functions
