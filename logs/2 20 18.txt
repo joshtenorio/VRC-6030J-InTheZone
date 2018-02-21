@@ -1,0 +1,8 @@
+changes made today:
+-wrote code so cbCurrent updates inside of the while loop in autostack
+  -autostack now works
+  for now test running normal robot operations after robot is done autostacking and make autostack faster
+
+tests done today:
+autostack works, refer to journal for tests
+    

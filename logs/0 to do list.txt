@@ -11,6 +11,8 @@
     maybe move autostack to its own c file?
     because zack has his autostack in a different file
   test
-    making calls to normal opcontrol functions for chainbar and cone manipulators so it might not get stuck
-    might have to remove opcontrolchainbar and conegrabber in opcontrol.c if this doesnt really work (TEST THIS)
-    test to see if every other subsystem works ok after and before using autostack
+    test to see if every other subsystem works ok after using autostack
+  improve
+    make autostack go faster (reduce the 750 ms delay to something like 400)
+    make autostack do 4 cones, if time permits (focus on 20 point autonomous first)
+    
