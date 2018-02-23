@@ -40,6 +40,10 @@ void opcontrolStack(){
       coneGrabber(-90); //this needs speed to pick up cone
       delay(750);
       coneGrabber(0);
+      
+      if(joystickGetDigital(2, 8, JOY_UP){ //kill autostack button
+	    break;
+      }
     }
 
 	}
