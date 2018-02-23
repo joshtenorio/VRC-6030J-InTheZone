@@ -4,52 +4,33 @@
 void autoBetterSkills() {
 	encoderReset(encoderChainB); //bring chainbar up
 	delay(20);
-	autoChainBar(-50); //original was -80
+	autoChainBar(64); //original was -80
 	delay(1200);
 
 	mobileGoal(100);
 	delay(1450);
 	mobileGoal(0); //mob goal out
 
-	autoSmartTankDrive(1800, 1800); //drive forward, this is experimental testing
+	autoSmartTankDrive(1300, 1300); //drive forward, this is experimental testing
 
 	mobileGoal(-100);
 	delay(1350);
 	mobileGoal(0);  //mobile goal goes back in 
-
+	delay(200);
 	chainBar(0); //stops chainbar PID
-	delay(500);
+	delay(600);
 	
-	encoderReset(leftDriveShaft);
-	encoderReset(rightDriveShaft);
-	autoTankDrive(-1200, -1200);
-	delay(1);
-	while (smartMotorGet(MOTOR_DRIVE_LF) < -30) {
-		autoTankDrive(-1200, -1200); //go backwards
-		delay(1);
-	}
+	autoSmartTankDrive(-900, -900);
+	autoSmartTankDrive(-550, 550); //135 degree turn left, if doesnt work try 337 
+	autoSmartTankDrive(700, 700);
+	autoSmartTankDrive(-300, 300);
+	autoSmartTankDrive(570, 570);
+	coneGrabber(90);
+	autoChainBar(75);
+	delay(100);
+	coneGrabber(0);
 
-	autoSmartTankDrive(-350, 350); //135 degree turn left, if doesnt work try 337 
-	
-	encoderReset(leftDriveShaft);
-	encoderReset(rightDriveShaft);
-	autoTankDrive(200, 200);
-	delay(1);
-	while (smartMotorGet(MOTOR_DRIVE_LF) > 30) {
-		autoTankDrive(200, 200);            //go forward
-		delay(1);
-	}
-
-
-	encoderReset(leftDriveShaft);
-	encoderReset(rightDriveShaft);
-	autoTankDrive(-225, 225);
-	delay(1);
-	while (smartMotorGet(MOTOR_DRIVE_LF) < -30) {
-		autoTankDrive(-225, 225); //90 degree turn left
-		delay(1);
-	}
-
+	/*
 	autoSmartTankDrive(-150, -150); //go backwards kind of
 
 	encoderReset(leftDriveShaft);
@@ -95,7 +76,7 @@ void autoBetterSkills() {
 	tankDrive(0, 0);
 	chainBar(0);
 	mobileGoal(0);
-	
+	*/
 }
 
 

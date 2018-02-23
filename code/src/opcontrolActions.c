@@ -79,7 +79,7 @@ void opcontrolChainBar(){
    } 
    
    else if(joystickGetDigital(2, 8, JOY_LEFT)){                                           
-     speed = -min(60, max(-60, PID(current, -70, 1, 0.8, 0, 0)));    //holds chainbar right above mobile goal lifter (preset)
+     speed = min(60, max(-60, PID(current, 70, 1, 0.8, 0, 0)));    //holds chainbar right above mobile goal lifter (preset)
 	 cbTarget = encoderGet(encoderChainB);
    }  
    else { //if no chainbar control buttons are being pressed
@@ -87,7 +87,7 @@ void opcontrolChainBar(){
 		   speed=0;
 	   }
 	   else {
-		   speed = -min(60, max(-60, PID(current, cbTarget, 1, 0.9, 0, 0))); //run hold last position PID
+		   speed = min(60, max(-60, PID(current, cbTarget, 1, 0.9, 0, 0))); //run hold last position PID
 		   printf("Chainbar value, target, speed: %d\n, %d, %d\n", encoderGet(encoderChainB), cbTarget, smartMotorGet(MOTORS_CHAINB));
 	   }
    } 
