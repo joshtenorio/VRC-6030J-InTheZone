@@ -2,7 +2,10 @@
 -need documentation in every header files
 
 
- -rework 20 point autonomous so it scores and goes faster 
+-autonomous
+  20 pt right side
+    finish working on it
+    time it, make it go faster if possible
  
 
 -autostack

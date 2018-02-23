@@ -1,0 +1,7 @@
+changes made today:
+-worked on 20 pt autonomous
+
+tests done today:
+-autonomous
+  check journal for specific tests
+  we got autonomous up to the point where it should drop off mobile goal, havent tested that part yet
