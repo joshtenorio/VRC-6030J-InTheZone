@@ -17,7 +17,7 @@ void autoSmartTankDrive(int leftTarget, int rightTarget) {
 	encoderReset(rightDriveShaft);
 	autoTankDrive(leftTarget, rightTarget);
 	delay(1);
-	while (abs(smartMotorGet(MOTOR_DRIVE_LF)) > 35) {
+	while (abs(smartMotorGet(MOTOR_DRIVE_LF)) > 33) {
 		autoTankDrive(leftTarget, rightTarget); 
 		delay(1);
 	}

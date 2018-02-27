@@ -29,8 +29,18 @@
 
 void autonomous(){
 
-  //autoSkills();
-  autoBetterSkills();
+  //autonBetterSkills();
+  //autonBetter20PtRedRight();
+  auton10PtRight();
+  //auton5PtRight();
+
+
+
+
+
+
+
+
 	/*
 	encoderReset(leftDriveShaft);
 	encoderReset(rightDriveShaft);

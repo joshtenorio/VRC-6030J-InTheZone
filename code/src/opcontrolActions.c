@@ -69,12 +69,12 @@ void opcontrolChainBar(){
 
    if(joystickGetDigital(2, 5, JOY_UP)){ //move chainbar
      speed = 65; 
-	 print("button press");  
+
 	 cbTarget = encoderGet(encoderChainB);
    }
    else if(joystickGetDigital(2, 5, JOY_DOWN)){ //move chainbar
      speed = -65;
-	 print("button press");
+
 	 cbTarget = encoderGet(encoderChainB);
    } 
    
@@ -116,7 +116,7 @@ void opcontrolStack(){
 			printf("chainbar speed, target, 190, current, cone count: %d %d, %d, %d, %d\n", smartMotorGet(MOTORS_CHAINB), chainBarStack[coneCount], 190, encoderGet(encoderChainB), coneCount);
 			delay(1);
 		}
-		delay(750);
+		delay(500);
 		coneGrabber(90); //dropping cone
 
 		coneCount += 1;
@@ -135,7 +135,7 @@ void opcontrolStack(){
 		coneGrabber(0);
 		delay(20);
 		coneGrabber(-90); //this needs speed to pick up cone
-		delay(750);
+		delay(500);
 		coneGrabber(0);
 
 

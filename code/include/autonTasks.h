@@ -5,6 +5,8 @@
  * scores it in the 20 point zone, then backs
  * off.
  */
-void  auto20PtRedRight();
+void autonBetter20PtRedRight();
 
-void autoBetter20PtRedRight();
+void auton10PtRight();
+
+void auton5PtRight();
