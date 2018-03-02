@@ -81,13 +81,14 @@ void opcontrolChainBar(){
    else if(joystickGetDigital(2, 8, JOY_LEFT)){                                           
      speed = min(60, max(-60, PID(current, 70, 1, 0.8, 0, 0)));    //holds chainbar right above mobile goal lifter (preset)
 	 cbTarget = encoderGet(encoderChainB);
+	 printf("Chainbar value, 70, speed: %d\n, %d, %d\n", encoderGet(encoderChainB), 70, smartMotorGet(MOTORS_CHAINB));
    }  
    else { //if no chainbar control buttons are being pressed
 	   if (cbTarget > -15) { //checks if chainbar is resting above mobile goal, if it is will not run PID (dead band)
 		   speed=0;
 	   }
 	   else {
-		   speed = min(60, max(-60, PID(current, cbTarget, 1, 0.9, 0, 0))); //run hold last position PID
+		   speed = min(60, max(-60, PID(current, cbTarget, 1, 0.6, 0, 0))); //run hold last position PID
 		   printf("Chainbar value, target, speed: %d\n, %d, %d\n", encoderGet(encoderChainB), cbTarget, smartMotorGet(MOTORS_CHAINB));
 	   }
    } 
@@ -110,23 +111,24 @@ void opcontrolStack(){
 		while (abs(smartMotorGet(MOTORS_CHAINB)) > 30) { //bring chainbar to mobile goal stack
 			cbCurrent = encoderGet(encoderChainB);
 			chainBar(min(60, max(-60, PID(cbCurrent, chainBarStack[coneCount], 1, 0.8, 0, 0))));
-			if (abs(chainBarStack[coneCount] - cbCurrent) < 20) {
+			if ((abs(chainBarStack[coneCount] - cbCurrent) <= 40) || (joystickGetDigital(2, 8, JOY_UP))) {
 				break;
 			}
 			printf("chainbar speed, target, 190, current, cone count: %d %d, %d, %d, %d\n", smartMotorGet(MOTORS_CHAINB), chainBarStack[coneCount], 190, encoderGet(encoderChainB), coneCount);
 			delay(1);
 		}
-		delay(500);
+		delay(400);
 		coneGrabber(90); //dropping cone
 
 		coneCount += 1;
+		printf("//////////////coneCount = %d\n", coneCount);
 
 		chainBar(min(60, max(-60, PID(cbCurrent, 190, 1, 0.8, 0, 0))));
 		while (abs(smartMotorGet(MOTORS_CHAINB)) > 30) { //bring chainbar to driver load station
 			cbCurrent = encoderGet(encoderChainB);
 			chainBar(min(60, max(-60, PID(cbCurrent, 190, 1, 0.8, 0, 0))));
-			printf("CHAINBAR speed, target, 190, current: %d, %d, %d, %d\n", smartMotorGet(MOTORS_CHAINB), chainBarStack[coneCount], 190, encoderGet(encoderChainB));
-			if (abs(190 - cbCurrent) < 20) {
+			printf("CHAINBAR speed, 190, current: %d, %d, %d\n", smartMotorGet(MOTORS_CHAINB), 190, encoderGet(encoderChainB));
+			if ((abs(190 - cbCurrent) <= 40) || (joystickGetDigital(2, 8, JOY_UP))) {
 				break;
 			}
 			delay(1);
@@ -135,7 +137,7 @@ void opcontrolStack(){
 		coneGrabber(0);
 		delay(20);
 		coneGrabber(-90); //this needs speed to pick up cone
-		delay(500);
+		delay(400);
 		coneGrabber(0);
 
 

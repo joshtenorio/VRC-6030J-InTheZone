@@ -44,7 +44,7 @@ void operatorControl(){
 	opcontrolPanic();
     
     opcontrolDebug();
-	printf("Chainbar value, speed: %d, %d\n", encoderGet(encoderChainB), smartMotorGet(MOTORS_CHAINB));
+
     //printf("driveright value: %d\n", encoderGet(rightDriveShaft));
     //printf("driveleft value: %d\n", encoderGet(leftDriveShaft));
     //printf("linear gear, chainbar: %d, %d\n", encoderGet(shaftLinearGear), encoderGet(encoderChainB));

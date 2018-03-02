@@ -34,6 +34,15 @@ void autoChainBar(int target){
   printf("chainbar moving %d\n", smartMotorGet(MOTORS_CHAINB));
 }
 
+void autoHoldChainBar(int target) {
+	autoChainBar(target);
+	delay(1);
+	while (abs(smartMotorGet(MOTORS_CHAINB)) > 38) {
+		autoChainBar(target);
+		delay(1);
+	}
+}
+
 void autoLinearGear(int target){ 
   int current = encoderGet(shaftLinearGear);
   
@@ -51,10 +60,3 @@ void autoTimeConeG(int speed, int time) {
 	delay(time);
 	coneGrabber(0);
 }
-
-
-
-
-
-
-
