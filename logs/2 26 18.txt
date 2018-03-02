@@ -1,0 +1,9 @@
+changes made today:
+-finished 12 point autonomous
+-made autostack a bit faster, still has issues
+-discussed driver tryouts
+
+
+tests done today:
+-12 point autonomous
+  works refer to journal for tests

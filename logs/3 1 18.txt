@@ -1,0 +1,50 @@
+changes made today:
+-renamed auton10PtRightExperimental to auton10PtRightSynth
+-made 135 degree left turn in synch auton less stronger (it turned too much last time)
+-replaced rubber bands on chainbar, might mess up auton and maybe autostack (but mostly just auton)
+-drivers practiced
+-made cone manipulator stop rolling before robot moves back in 
+-making left side auton, does samething as right side auton
+-distance between wall and robot on left side for alligning auton is ~13.25 cm or 3 inches ish
+-add another condition for break statement in autostack
+  AKA if panic button is pressed, the while loop in autostack will terminate (using break statements)
+-made an autoHoldChainBar function that should help chainbar in autonomous, implemented it into autonomous (needs testing)
+  reason why chainbar wasn't working/very inconsistent was because code was setting speed once (cb speed wasnt updating)
+  new target values for new untested autoHoldChainBar function is now 72 instead of 50 something
+
+tests done today:
+autonomous with synch (go forward and mobile goal out at same time)
+  test 1: chainbar didn't go up high enough, turns too much at end also
+    making chainbar go higher (65 -> 70), reducing turn from 550 -> 500
+
+autonomous without synch (raise chainbar, take out mobile goal, then go forward)
+  test 1: chainbar didn't go high enough  
+    raising chainbar from 58->70
+  test 2: chainbar doesn't go high enough still, everything else is ok
+    raising cb, 70-> 75
+  test 3: chainbar goes too far, everything else ok
+    less raising cb, 75 -> 73
+  test 4: cb goes too far,
+    reverting to 60
+  test 5: still goes too far  
+    reducing 60 -> 58, and reducing chainbar kP from 0.8 to 0.6
+  test 6: isn't enough to raise chainbar
+    going to raise target from 58 -> 60
+  test 7: cb goes too far 
+    reducing kP to 0.5 and target to 50
+  test 8: it works
+    testing two more times with same code for consistency
+  test 9: works 
+  test 10: works
+  
+autonomous left side (scores at least 12 points, should do same thing as right side)
+  test 1: went a bit too far after 135 degree turn, reducing the target from 300-270
+  test 2: chainbar went too far 
+    reducing cb target from 50 -> 48
+  test 3: robot moves too far after 135 degree turn, reducing it from 270 ->220
+  test 4: reducing 135 degree turn (550 -> 520) and making it 
+  test 5: works, but chainbar could be tad bit higher, and could go further into 10 pt zone 120 ->150 and chainbar 54 -> 57
+  test 6: works ish, making robot go more forward into 10 pt zone 150->200 and i think chainbar ok
+  test 7: pretty decent i think its ok. running 2 more times for consistency
+  test 8: works but could be better, we'll prefer right side auton though
+
