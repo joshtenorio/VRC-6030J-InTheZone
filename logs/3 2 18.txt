@@ -1,0 +1,14 @@
+changes made today:
+-worked on left side auton
+  made it go further into 10 pt zone to score the mobile goal in 10 point zone, added a slight delay
+-autostack
+  panic button (when autostack gets stuck press panic button to get autostack unstuck)
+
+
+tests done today:
+-auton (both sides) and hold chainbar function
+  works, but needed to raise chainbar target (85)
+-autostack  
+  works, stacks 11.72 seconds for 4 cones (2.93
+  seconds per cone)
+  by comparison, fastest other seconds per cone is 3.82 seconds per cone
