@@ -34,5 +34,6 @@ void autonomous(){
 	auton10PtRight();
 	//auton10PtLeft();
 	//auton10PtRightSynch();
+	//autonBlitz();
 
 }

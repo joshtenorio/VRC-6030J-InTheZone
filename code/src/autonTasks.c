@@ -41,7 +41,7 @@ void autonBetter20PtRedRight() {
 void auton10PtRight() {
 	encoderReset(encoderChainB);
 	delay(20);
-	autoHoldChainBar(72); //hold chainbar up
+	autoHoldChainBar(86); //hold chainbar up
 	mobileGoal(100);
 	delay(1450);
 	mobileGoal(0); //mob goal out
@@ -56,27 +56,34 @@ void auton10PtRight() {
 	autoSmartTankDrive(-550, 550); //135 degree turn left
 	autoSmartTankDrive(300, 300);
 	autoSmartTankDrive(-300, 300);
-	autoSmartTankDrive(100, 100);
+	autoSmartTankDrive(170, 170);
 	delay(40);
 	coneGrabber(90);
 	delay(40);
-	autoHoldChainBar(72);
+	autoHoldChainBar(86);
 	delay(100);
 	mobileGoal(100); 
-	delay(1350);
+	delay(1450);
 	mobileGoal(0); 
 	coneGrabber(0);
-	autoSmartTankDrive(-3400, -1400); 
+	delay(300);
+	autoResetDriveEncoders();
+	autoTankDrive(-3000, -1400); 
 	mobileGoal(-100); 
 	delay(1350);
 	mobileGoal(0);
-	chainBar(0); 	
+	chainBar(0);
+	while (abs(smartMotorGet(MOTOR_DRIVE_LF)) > 33) {
+		autoTankDrive(-3000, -1400);
+		delay(1);
+	}
+	tankDrive(0, 0);
 }
 
 void auton10PtLeft() {
 	encoderReset(encoderChainB); //bring chainbar up
 	delay(20);
-	autoChainBar(57);
+	autoHoldChainBar(85);
 	delay(400);
 	mobileGoal(100);
 	delay(1450);
@@ -92,21 +99,27 @@ void auton10PtLeft() {
 	autoSmartTankDrive(520, -520); //135 degree turn right
 	autoSmartTankDrive(180, 180);
 	autoSmartTankDrive(300, -300);
-	autoSmartTankDrive(200, 200);
+	autoSmartTankDrive(350, 350);
 	delay(40);
 	coneGrabber(90);
 	delay(40);
-	autoChainBar(55);
-	delay(100);
+	autoHoldChainBar(85);
 	mobileGoal(100);
-	delay(1350);
+	delay(1450);
 	mobileGoal(0);
 	coneGrabber(0);
-	autoSmartTankDrive(-1400, -1400);
+	delay(300);
+	autoResetDriveEncoders();
+	autoTankDrive(-1400, -1400);
 	mobileGoal(-100);
 	delay(1350);
 	mobileGoal(0);
 	chainBar(0);
+	while (abs(smartMotorGet(MOTOR_DRIVE_LF)) > 33) {
+		autoTankDrive(-1400, -1400);
+		delay(1);
+	}
+	tankDrive(0, 0);
 }
 void auton10PtRightSynch() { //should be same as normal 10 pt right auton, but this one attempts synchronization
 	encoderReset(encoderChainB); //bring chainbar up
@@ -149,5 +162,9 @@ void auton10PtRightSynch() { //should be same as normal 10 pt right auton, but t
 		delay(1);
 	}
 	tankDrive(0, 0); */
+}
+
+void autonBlitz() {
+	autoSmartTankDrive(5000, 5000);
 }
    
